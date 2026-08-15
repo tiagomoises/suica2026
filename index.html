@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="description" content="Guia de viagem — Suíça, 30 de agosto a 5 de setembro de 2026. Tiago e Miriam.">
+<title>Suíça 2026 · Guia de Viagem — Tiago &amp; Miriam</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<style>
+:root{
+  --bg:#fbfbfa; --surface:#ffffff; --surface-2:#f5f6f7;
+  --ink:#16181d; --ink-2:#4b5159; --ink-3:#8b9199;
+  --line:#e7e8ea; --line-2:#d9dbde;
+  --accent:#b3202e; --accent-soft:#fdf2f3;
+  --alpine:#1f6f5c; --alpine-soft:#eef6f3;
+  --sky:#2a6f97; --sky-soft:#eef4f8;
+  --sun:#a97a12; --sun-soft:#fdf7ea;
+  --r-sm:8px; --r:14px; --r-lg:20px; --r-xl:28px;
+  --sh-1:0 1px 2px rgba(16,18,22,.05);
+  --sh-2:0 2px 8px rgba(16,18,22,.06),0 1px 2px rgba(16,18,22,.04);
+  --sh-3:0 12px 32px rgba(16,18,22,.10);
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px; --s6:32px; --s7:48px; --s8:72px;
+  --wrap:980px;
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --font-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Segoe UI",Inter,Roboto,sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);line-height:1.6;font-size:17px;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:var(--sky);text-decoration:none}
+a:hover{text-decoration:underline}
+:focus-visible{outline:2.5px solid var(--sky);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:var(--s4)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:0 0 var(--r-sm) 0;z-index:200}
+.skip:focus{left:0}
+h1,h2,h3,h4{font-family:var(--font-display);letter-spacing:-.02em;line-height:1.18;font-weight:650}
+.ico{width:1em;height:1em;flex:none;vertical-align:-.125em;stroke:currentColor;fill:none;stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+
+/* ---------- HERO ---------- */
+.hero{background:linear-gradient(180deg,#101418 0%,#1a2027 100%);color:#fff;padding:var(--s8) 0 var(--s7)}
+.hero .eyebrow{font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:#9aa3ad;font-weight:600}
+.hero h1{font-size:clamp(2.1rem,7vw,3.4rem);margin:var(--s3) 0 var(--s2);color:#fff;font-weight:700}
+.hero .lede{font-size:clamp(1rem,2.6vw,1.15rem);color:#c3cad2;max-width:46ch}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.12);border-radius:var(--r);overflow:hidden;margin-top:var(--s6)}
+.fact{background:#151b21;padding:var(--s4)}
+.fact dt{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#8e97a1;font-weight:600;margin-bottom:2px}
+.fact dd{font-size:.98rem;color:#eef1f4;font-weight:550}
+.fact dd small{display:block;color:#98a1ab;font-weight:400;font-size:.82rem}
+
+/* ---------- STICKY NAV ---------- */
+.daynav{position:sticky;top:0;z-index:100;background:rgba(251,251,250,.85);backdrop-filter:saturate(180%) blur(14px);
+  -webkit-backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.daynav .row{display:flex;gap:var(--s2);overflow-x:auto;padding:10px var(--s4);scrollbar-width:none;-ms-overflow-style:none}
+.daynav .row::-webkit-scrollbar{display:none}
+.daynav a{flex:none;font-size:.86rem;font-weight:600;color:var(--ink-2);background:var(--surface);border:1px solid var(--line);
+  padding:8px 14px;border-radius:999px;min-height:38px;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:.15s}
+.daynav a:hover,.daynav a:focus-visible{background:var(--ink);color:#fff;border-color:var(--ink);text-decoration:none}
+.daynav a.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ---------- SECTIONS ---------- */
+.sec{padding:var(--s7) 0}
+.sec-h{display:flex;align-items:baseline;justify-content:space-between;gap:var(--s3);margin-bottom:var(--s5);flex-wrap:wrap}
+.sec-h h2{font-size:clamp(1.4rem,4vw,1.9rem)}
+.sec-h p{color:var(--ink-3);font-size:.92rem}
+
+/* ---------- DAY ---------- */
+.day{margin-bottom:var(--s7);scroll-margin-top:76px}
+.day-head{border-bottom:1px solid var(--line);padding-bottom:var(--s4);margin-bottom:var(--s5)}
+.day-num{display:inline-flex;align-items:center;gap:8px;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--accent);font-weight:700}
+.day-head h3{font-size:clamp(1.5rem,4.6vw,2.1rem);margin:var(--s2) 0 var(--s2)}
+.day-head .desc{color:var(--ink-2);max-width:62ch;font-size:1.02rem}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.chip{display:inline-flex;align-items:center;gap:6px;background:var(--surface);border:1px solid var(--line);
+  border-radius:999px;padding:6px 12px;font-size:.82rem;color:var(--ink-2);font-weight:520;white-space:nowrap}
+.chip .ico{color:var(--ink-3)}
+.chip.wxdep{background:var(--sky-soft);border-color:#cfe0ec;color:#1c536f}
+.chip.cost{background:var(--alpine-soft);border-color:#cfe6de;color:#155c4a}
+
+/* ---------- TIMELINE ---------- */
+.tl{list-style:none;position:relative;padding-left:var(--s5)}
+.tl::before{content:"";position:absolute;left:7px;top:6px;bottom:6px;width:2px;background:var(--line-2);border-radius:2px}
+.tl>li{position:relative;padding-bottom:var(--s5)}
+.tl>li:last-child{padding-bottom:0}
+.tl>li::before{content:"";position:absolute;left:calc(-1 * var(--s5) + 2px);top:7px;width:12px;height:12px;border-radius:50%;
+  background:var(--surface);border:2.5px solid var(--line-2)}
+.tl>li.k::before{border-color:var(--accent);background:var(--accent)}
+.tl .t{font-variant-numeric:tabular-nums;font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.tl h4{font-size:1.06rem;margin:2px 0 4px;font-weight:620}
+.tl .meta{display:flex;flex-wrap:wrap;gap:var(--s2);margin:var(--s2) 0 0}
+.tl p{color:var(--ink-2);font-size:.95rem;margin-top:4px}
+.tl p a{font-weight:550}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.74rem;font-weight:700;letter-spacing:.03em;
+  padding:3px 9px;border-radius:6px;white-space:nowrap}
+.pill.must{background:var(--alpine);color:#fff}
+.pill.rec{background:var(--sun-soft);color:var(--sun);border:1px solid #ecdcb4}
+.pill.opt{background:var(--surface-2);color:var(--ink-3);border:1px solid var(--line)}
+.pill.free{background:var(--surface-2);color:var(--ink-2);border:1px solid var(--line)}
+.pill.pay{background:var(--accent-soft);color:var(--accent);border:1px solid #f3d3d6}
+.pill.resv{background:#fff6e0;color:var(--sun);border:1px solid #ecdcb4}
+.ext::after{content:"";display:inline-block;width:.62em;height:.62em;margin-left:.28em;vertical-align:baseline;
+  background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M9 7h8v8' stroke='%23000' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;
+  mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 17 17 7M9 7h8v8' stroke='%23000' stroke-width='2.4' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/contain no-repeat;opacity:.75}
+
+/* ---------- CARDS ---------- */
+.cards{display:grid;gap:var(--s3);margin-top:var(--s5)}
+@media(min-width:760px){.cards.two{grid-template-columns:1fr 1fr}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:var(--s4) var(--s4) var(--s4) calc(var(--s4) + 3px);
+  box-shadow:var(--sh-1);position:relative;overflow:hidden;break-inside:avoid}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--line-2)}
+.card.wx::before{background:var(--sky)} .card.food::before{background:var(--sun)}
+.card.slow::before{background:var(--alpine)} .card.tip::before{background:var(--ink-3)}
+.card.warn::before{background:var(--accent)}
+.card h5{display:flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.09em;text-transform:uppercase;
+  font-weight:700;color:var(--ink-3);margin-bottom:var(--s2)}
+.card.wx h5{color:var(--sky)} .card.food h5{color:var(--sun)} .card.slow h5{color:var(--alpine)} .card.warn h5{color:var(--accent)}
+.card p{font-size:.93rem;color:var(--ink-2)}
+.card p+p{margin-top:var(--s2)}
+.card b,.card strong{color:var(--ink);font-weight:620}
+.card ul{list-style:none;margin-top:var(--s2)}
+.card li{font-size:.93rem;color:var(--ink-2);padding-left:18px;position:relative;margin-bottom:5px}
+.card li::before{content:"";position:absolute;left:2px;top:.62em;width:5px;height:5px;border-radius:50%;background:var(--line-2)}
+
+/* ---------- FOOD BLOCK ---------- */
+.meals{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:var(--s3)}
+@media(min-width:680px){.meals{grid-template-columns:1fr 1fr}}
+.meal{background:var(--surface);padding:var(--s3) var(--s4)}
+.meal .lbl{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;font-weight:700;color:var(--ink-3);margin-bottom:3px}
+.meal .val{font-size:.94rem;color:var(--ink);font-weight:560}
+.meal .val small{display:block;font-weight:400;color:var(--ink-2);font-size:.87rem;margin-top:2px}
+.money{display:flex;flex-wrap:wrap;gap:var(--s3);margin-top:var(--s3);padding-top:var(--s3);border-top:1px dashed var(--line-2)}
+.money div{font-size:.88rem;color:var(--ink-2)}
+.money b{display:block;font-size:1.02rem;color:var(--ink);font-variant-numeric:tabular-nums}
+.flagpork,.flagalc{display:inline-flex;align-items:center;gap:5px;background:var(--accent-soft);color:var(--accent);
+  border:1px solid #f3d3d6;border-radius:6px;padding:2px 8px;font-size:.75rem;font-weight:650;margin-top:6px}
+
+/* ---------- SPEND/SAVE ---------- */
+.ss{display:grid;gap:var(--s2);margin-top:var(--s3)}
+.ss div{display:flex;gap:var(--s3);align-items:flex-start;font-size:.92rem;color:var(--ink-2);
+  background:var(--surface-2);border-radius:var(--r-sm);padding:10px 12px}
+.ss .tag{font-size:.7rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:5px;flex:none;margin-top:1px}
+.ss .save .tag,.ss div.save>.tag{background:var(--alpine-soft);color:var(--alpine)}
+.ss div.spend>.tag{background:var(--sun-soft);color:var(--sun)}
+
+/* ---------- MAP ---------- */
+.mapwrap{margin-top:var(--s5);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--surface);box-shadow:var(--sh-1)}
+.mapwrap .cap{display:flex;align-items:center;gap:8px;padding:var(--s3) var(--s4);border-bottom:1px solid var(--line);
+  font-size:.82rem;font-weight:650;color:var(--ink-2)}
+.leaf{height:min(52vh,420px);min-height:280px;width:100%;background:var(--surface-2)}
+.leaf .fallback{display:flex;height:100%;align-items:center;justify-content:center;color:var(--ink-3);font-size:.9rem;padding:var(--s4);text-align:center}
+.stops{display:grid;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+@media(min-width:680px){.stops{grid-template-columns:1fr 1fr}}
+.stop{background:var(--surface);padding:10px var(--s4);display:flex;gap:10px;font-size:.88rem}
+.stop .n{flex:none;width:22px;height:22px;border-radius:50%;background:var(--surface-2);border:1px solid var(--line-2);
+  color:var(--ink-2);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;font-variant-numeric:tabular-nums}
+.stop.k .n{background:var(--accent);border-color:var(--accent);color:#fff}
+.stop b{font-weight:600;color:var(--ink)} .stop small{display:block;color:var(--ink-3);font-size:.82rem}
+
+/* ---------- FIGURE ---------- */
+figure{margin-top:var(--s4);border-radius:var(--r);overflow:hidden;border:1px solid var(--line);background:var(--surface)}
+figure img{width:100%;height:clamp(160px,26vw,240px);object-fit:cover;cursor:zoom-in}
+figcaption{font-size:.8rem;color:var(--ink-3);padding:8px var(--s3)}
+
+/* ---------- TABLES → CARDS ON MOBILE ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+.tbl caption{text-align:left;font-size:.8rem;color:var(--ink-3);padding-bottom:var(--s2)}
+.tbl th{text-align:left;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);
+  font-weight:700;padding:0 var(--s3) var(--s2);border-bottom:1px solid var(--line)}
+.tbl td{padding:var(--s3);border-bottom:1px solid var(--line);color:var(--ink-2);vertical-align:top}
+.tbl td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;color:var(--ink);font-weight:600}
+.tbl tr:last-child td{border-bottom:none}
+.tbl .tot td{font-weight:700;color:var(--ink);border-top:2px solid var(--line-2)}
+@media(max-width:640px){
+  .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+  .tbl thead{display:none}
+  .tbl tr{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);margin-bottom:var(--s2);padding:var(--s3)}
+  .tbl td{border:none;padding:3px 0;text-align:left!important}
+  .tbl td::before{content:attr(data-l);display:block;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);font-weight:700}
+}
+
+/* ---------- MISC ---------- */
+.note{font-size:.86rem;color:var(--ink-3);margin-top:var(--s3)}
+.totop{position:fixed;right:16px;bottom:16px;z-index:99;width:46px;height:46px;border-radius:50%;background:var(--ink);color:#fff;
+  border:none;display:none;align-items:center;justify-content:center;box-shadow:var(--sh-3);cursor:pointer}
+.totop.show{display:flex}
+.lightbox{position:fixed;inset:0;background:rgba(10,12,15,.92);display:none;align-items:center;justify-content:center;z-index:300;padding:16px;cursor:zoom-out}
+.lightbox.open{display:flex}
+.lightbox img{max-width:96vw;max-height:92vh;border-radius:var(--r)}
+footer.site{border-top:1px solid var(--line);padding:var(--s6) 0 var(--s8);color:var(--ink-3);font-size:.85rem}
+
+/* ---------- HERO MEDIA ---------- */
+.hero-media{position:relative;margin-top:var(--s6);border-radius:var(--r-lg);overflow:hidden;border:1px solid rgba(255,255,255,.14);background:#0c1014}
+.hero-media img{width:100%;height:clamp(200px,36vw,340px);object-fit:cover;display:block}
+.hero-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:28px var(--s4) 10px;font-size:.78rem;color:#cdd4db;
+  background:linear-gradient(180deg,rgba(10,13,17,0),rgba(10,13,17,.85))}
+
+/* ---------- GALLERY ---------- */
+.gal-title{display:flex;align-items:center;gap:8px;font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:750;margin-top:var(--s5)}
+.gal{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);margin-top:var(--s3)}
+@media(max-width:899px){.gal{grid-template-columns:1fr 1fr}}
+@media(max-width:639px){
+  .gal{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:6px;scrollbar-width:thin}
+  .gal>*{flex:0 0 78%;scroll-snap-align:start}
+}
+.gcard{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--sh-1);display:flex;flex-direction:column;break-inside:avoid}
+.gcard .im{position:relative;aspect-ratio:3/2;background:var(--surface-2);overflow:hidden}
+.gcard .im img{width:100%;height:100%;object-fit:cover;cursor:zoom-in}
+.gcard .tx{padding:10px 12px 12px}
+.gcard .tx h5{font-size:.94rem;font-weight:650;color:var(--ink);margin-bottom:2px;letter-spacing:-.01em}
+.gcard .tx p{font-size:.83rem;color:var(--ink-2);margin:2px 0 7px}
+.gcard .meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.gcard .when{font-size:.73rem;color:var(--ink-3);font-weight:650;font-variant-numeric:tabular-nums}
+.ph{aspect-ratio:3/2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  background:repeating-linear-gradient(45deg,var(--surface-2),var(--surface-2) 12px,#eceef0 12px,#eceef0 24px);
+  color:var(--ink-3);font-size:.76rem;text-align:center;padding:12px}
+.ph svg{width:26px;height:26px;stroke:var(--ink-3);fill:none;stroke-width:1.6}
+
+/* ---------- MAP MARKERS & LEGEND ---------- */
+.num-icon{width:26px;height:26px;border-radius:50%;background:#fff;border:2px solid #1d2733;color:#1d2733;
+  font:700 12px/22px var(--font);text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.35)}
+.num-icon.hl{background:var(--accent);border-color:var(--accent);color:#fff}
+.num-icon.end{background:#1d2733;color:#fff}
+.base-icon{background:#1d2733;color:#fff;border:2px solid #fff;border-radius:8px;padding:2px 8px;
+  font:700 11px/1.5 var(--font);white-space:nowrap;box-shadow:0 1px 4px rgba(0,0,0,.4);width:auto!important;height:auto!important}
+.maplegend{display:flex;flex-wrap:wrap;gap:6px var(--s4);padding:8px var(--s4);border-bottom:1px solid var(--line);
+  font-size:.76rem;color:var(--ink-2);background:var(--surface-2)}
+.maplegend span{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.maplegend svg{width:34px;height:8px;flex:none}
+.mapnote{font-size:.76rem;color:var(--ink-3);padding:7px var(--s4);border-top:1px dashed var(--line)}
+
+/* ---------- LEAFLET POPUPS (compact) ---------- */
+.leaflet-popup-content{margin:10px 12px;font:400 13px/1.45 var(--font);color:var(--ink-2)}
+.pp{width:200px;max-width:72vw}
+.pp b{color:var(--ink);font-size:.86rem}
+.pp img{width:100%;height:110px;object-fit:cover;border-radius:6px;margin:6px 0 4px;cursor:zoom-in;display:block;background:var(--surface-2)}
+.pp .ppl{font-size:.76rem;color:var(--ink-2);margin:2px 0}
+.pp .ppmeta{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0 3px}
+.pp .pill{font-size:.66rem;padding:2px 7px}
+.pp a{font-weight:600;font-size:.78rem}
+
+/* ---------- LIGHTBOX EXTRAS ---------- */
+.lbclose{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.16);
+  color:#fff;border:none;font-size:24px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:2}
+.lbclose:hover{background:rgba(255,255,255,.3)}
+.lbcap{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);max-width:88vw;color:#cdd4db;font-size:.8rem;text-align:center}
+
+/* ---------- PRINT ---------- */
+@media print{
+  @page{margin:14mm}
+  html{font-size:11.5pt}
+  body{background:#fff}
+  .daynav,.totop,.lightbox,.hero .facts,.hero-media,.maplegend,.mapnote{display:none!important}
+  .gal{display:grid!important;grid-template-columns:1fr 1fr!important;overflow:visible!important}
+  .gal>*{flex:none!important}
+  .gcard .im{aspect-ratio:auto}
+  .gcard .im img{height:110pt}
+  .hero{background:#fff!important;color:#000;padding:0 0 12pt;border-bottom:2px solid #000}
+  .hero h1,.hero .lede,.hero .eyebrow{color:#000!important}
+  .sec{padding:12pt 0}
+  .day,.card,.meals,.mapwrap,figure,.tbl tr{break-inside:avoid;page-break-inside:avoid}
+  .day{page-break-before:always}
+  .day:first-of-type{page-break-before:auto}
+  .leaf{display:none}
+  .mapwrap .cap::after{content:" — lista de paradas abaixo"}
+  .card{box-shadow:none;border:1px solid #bbb}
+  a{color:#000;text-decoration:underline}
+  .tl p a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#555;word-break:break-all}
+  .stops{grid-template-columns:1fr 1fr}
+  figure img{height:120pt}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Ir para o conteúdo</a>
+<svg class="sr" aria-hidden="true"><defs>
+<symbol id="i-train" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="13" rx="3"/><path d="M5 10h14M8 20l-2 2M16 20l2 2M9 16h.01M15 16h.01"/></symbol>
+<symbol id="i-walk" viewBox="0 0 24 24"><circle cx="13" cy="4" r="1.6"/><path d="m9 21 2-6-2-3 1-5 3 2 3 1M11 12l-3 3"/></symbol>
+<symbol id="i-cash" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.6"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 18a4.5 4.5 0 0 0 .3-9A6 6 0 0 0 6.3 10 3.5 3.5 0 0 0 7 18h10.5Z"/><path d="M9 21v1M13 21v1M17 21v1"/></symbol>
+<symbol id="i-fork" viewBox="0 0 24 24"><path d="M5 3v6a2 2 0 0 0 4 0V3M7 9v12M17 3c-1.5 1.5-2 3-2 5s.5 3 2 3v10"/></symbol>
+<symbol id="i-leaf" viewBox="0 0 24 24"><path d="M4 20c0-8 6-14 16-14 0 10-6 14-12 14a9 9 0 0 1-4 0Z"/><path d="M8 16c2-3 5-5 8-6"/></symbol>
+<symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></symbol>
+<symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.6 5.6 6 .8-4.4 4.2 1.1 6L12 16.8 6.7 19.6l1.1-6L3.4 9.4l6-.8Z"/></symbol>
+<symbol id="i-map" viewBox="0 0 24 24"><path d="m9 4-6 3v13l6-3 6 3 6-3V4l-6 3Z"/><path d="M9 4v13M15 7v13"/></symbol>
+<symbol id="i-bed" viewBox="0 0 24 24"><path d="M3 18v-6h18v6M3 12V8M21 18v2M3 18v2"/><circle cx="7.5" cy="9.5" r="1.5"/></symbol>
+<symbol id="i-up" viewBox="0 0 24 24"><path d="M12 19V5M5 12l7-7 7 7"/></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+<symbol id="i-cart" viewBox="0 0 24 24"><path d="M3 4h2l2.4 11h10L20 7H6"/><circle cx="9" cy="19" r="1.4"/><circle cx="17" cy="19" r="1.4"/></symbol>
+<symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.4"/><circle cx="6" cy="18" r="2.4"/><path d="M8 8l12 10M20 6 8 16"/></symbol>
+<symbol id="i-plane" viewBox="0 0 24 24"><path d="M10 20l2-5 8 2 1-3-8-4V4a1.5 1.5 0 0 0-3 0v6l-8 4 1 3 8-2 2 5Z"/></symbol>
+</defs></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Guia de viagem · versão 2.1 — contexto visual e mapas</p>
+    <h1>Suíça, a primeira visita</h1>
+    <p class="lede">Sete dias entre Zurique, os Alpes Berneses e o Valais — planejados para aproveitar ao máximo o Swiss Travel Pass e comer bem gastando pouco.</p>
+    <figure class="hero-media">
+      <img src="https://commons.wikimedia.org/wiki/Special:FilePath/1_lauterbrunnen_valley_wengen_2022.jpg?width=1280" alt="Vale de Lauterbrunnen visto do alto, com a cascata Staubbach caindo sobre o vilarejo e os prados verdes do fundo do vale" width="1280" height="720" fetchpriority="high">
+      <figcaption>Vale de Lauterbrunnen — o coração dos dias de montanha (qui 3 set) · foto: Wikimedia Commons</figcaption>
+    </figure>
+    <dl class="facts">
+      <div class="fact"><dt>Viajantes</dt><dd>Tiago &amp; Miriam<small>2 pessoas</small></dd></div>
+      <div class="fact"><dt>Datas</dt><dd>30 ago – 5 set 2026<small>6 noites</small></dd></div>
+      <div class="fact"><dt>Rota</dt><dd>Zurique → Lucerna → Interlaken<small>→ Goms → aeroporto</small></dd></div>
+      <div class="fact"><dt>Base Zurique</dt><dd>Radisson Hotel &amp; Suites<small>Glattpark/Opfikon · 30 ago–2 set · café incluído</small></dd></div>
+      <div class="fact"><dt>Base alpina</dt><dd>Hotel Central Continental<small>Unterseen · Bahnhofstrasse 43 · 2–5 set · café incluído</small></dd></div>
+      <div class="fact"><dt>Transporte</dt><dd>2× Swiss Travel Pass<small>4 dias · ativam 2 set · CHF 618</small></dd></div>
+      <div class="fact"><dt>Estilo</dt><dd>Econômico e sem pressa<small>mercado + 1 restaurante</small></dd></div>
+      <div class="fact"><dt>Orçamento</dt><dd>~CHF 1.060<small>casal, sem hotel e voos</small></dd></div>
+      <div class="fact"><dt>Volta</dt><dd>ZRH → MAD 20h25<small>5 set · chegar 17h30</small></dd></div>
+      <div class="fact"><dt>Clima em setembro</dt><dd>12–22 °C no vale<small>5–10 °C acima de 1.500 m</small></dd></div>
+      <div class="fact"><dt>Reservas</dt><dd>1 a fazer<small>jantar 4 set · nenhum trem precisa de reserva</small></dd></div>
+    </dl>
+  </div>
+</header>
+
+<nav class="daynav" aria-label="Navegação por dia">
+  <div class="wrap row">
+    <a href="#visao">Visão geral</a>
+    <a href="#d1">Dom 30</a><a href="#d2">Seg 31</a><a href="#d3">Ter 1</a>
+    <a href="#d4">Qua 2 · Lucerna</a><a href="#d5">Qui 3 · Alpes</a><a href="#d6">Sex 4 · Berna</a><a href="#d7">Sáb 5 · Goms</a>
+    <a href="#comida">Comida &amp; orçamento</a><a href="#pratico">Prático</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<section class="sec" id="visao" aria-labelledby="h-visao">
+  <div class="wrap">
+    <div class="sec-h"><h2 id="h-visao">A viagem em uma tela</h2><p>Sete dias, três bases, tudo no pass exceto um tobogã e um jantar.</p></div>
+    <table class="tbl">
+      <caption>Resumo diário — role para o dia completo</caption>
+      <thead><tr><th scope="col">Dia</th><th scope="col">O quê</th><th scope="col">Gasto casal</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Dia"><b>Dom 30 ago</b><br><small>Zurique</small></td><td data-l="Programa">Chegada de Munique · check-in Glattpark · cidade velha a pé, Grossmünster, Fraumünster, lago</td><td data-l="Gasto">~35</td></tr>
+        <tr><td data-l="Dia"><b>Seg 31 ago</b><br><small>Zurique</small></td><td data-l="Programa">Treinamento (dia 1) · Miriam a pé no centro; fim de tarde no lago juntos</td><td data-l="Gasto">~45</td></tr>
+        <tr><td data-l="Dia"><b>Ter 1 set</b><br><small>Zurique</small></td><td data-l="Programa">Treinamento (dia 2) · tarde e noite juntos; malas prontas</td><td data-l="Gasto">~45</td></tr>
+        <tr><td data-l="Dia"><b>Qua 2 set</b><br><small>Lucerna</small></td><td data-l="Programa">Dia inteiro em Lucerna + trem panorâmico do Brünig até Interlaken</td><td data-l="Gasto">~105</td></tr>
+        <tr><td data-l="Dia"><b>Qui 3 set</b><br><small>Jungfrau</small></td><td data-l="Programa">Grindelwald, tobogã de Pfingstegg, Lauterbrunnen, Mürren, barco de Brienz</td><td data-l="Gasto">~70</td></tr>
+        <tr><td data-l="Dia"><b>Sex 4 set</b><br><small>Thun + Berna</small></td><td data-l="Programa">Barco no Lago de Thun, castelo de Thun, Berna UNESCO; jantar especial</td><td data-l="Gasto">~100</td></tr>
+        <tr><td data-l="Dia"><b>Sáb 5 set</b><br><small>Goms → voo</small></td><td data-l="Programa">Metade oeste do Glacier Express, Andermatt, Schöllenen, aeroporto</td><td data-l="Gasto">~35</td></tr>
+        <tr class="tot"><td data-l="Total" colspan="2">Passes (618) + atividades + comida + trams de Zurique · café incluído nos dois hotéis</td><td data-l="Total">~1.060</td></tr>
+      </tbody>
+    </table>
+    <div class="mapwrap" style="margin-top:var(--s5)">
+      <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Mapa geral da viagem — bases, bate-voltas e rotas</p>
+      <div class="maplegend" data-legend="train,scenic,boat,cable,opt,base"></div>
+      <div id="map0" class="leaf" style="height:min(62vh,520px)" role="img" aria-label="Mapa geral da viagem: Zurique, Lucerna, Interlaken/Unterseen, região da Jungfrau, Thun, Berna, Brig, Goms, Andermatt e aeroporto de Zurique"><div class="fallback">O mapa precisa de conexão. O resumo diário acima funciona offline.</div></div>
+      <p class="mapnote">Mapa de orientação: as linhas ligam as paradas em traçado aproximado e <b>não seguem o alinhamento exato dos trilhos</b>. Bases de pernoite: Zurique (30 ago–2 set) e Unterseen (2–5 set). Quinta é bate-volta na montanha; sexta, bate-volta Thun + Berna. Os trechos cênicos (Brünig e Goms) usam <b>trens regulares</b> — nenhum trem do roteiro exige reserva.</p>
+    </div>
+    <div class="cards two">
+      <div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Regra do clima</h5>
+        <p><b>Quinta (montanha) e sexta (Thun e Berna) são intercambiáveis.</b> Cheque o <a class="ext" href="https://www.meteoswiss.admin.ch/" target="_blank" rel="noopener">MeteoSwiss</a> e as <a class="ext" href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank" rel="noopener">webcams ao vivo</a> na noite anterior e dê sempre a montanha ao dia mais limpo. Cidades funcionam com chuva; teleféricos e tobogãs, não.</p></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-info"/></svg>A lógica da viagem</h5>
+        <p>Três dias de cidade em Zurique a pé, sem pass → um dia em Lucerna com chegada panorâmica → dois dias de montanha com base fixa → despedida pelos Alpes até o aeroporto. Os passes cobrem exatamente os quatro dias de deslocamento.</p></div>
+    </div>
+  </div>
+</section>
+<section class="sec" aria-label="Roteiro dia a dia"><div class="wrap">
+<article class="day" id="d1" aria-labelledby="h-d1">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 1 · Domingo, 30 de agosto</p>
+    <h3 id="h-d1">Chegada a Zurique</h3>
+    <p class="desc">Trem de Munique, check-in no Radisson (Glattpark) e primeira tarde suíça — o centro em si é todo a pé.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-train"/></svg>Trem ECE de Munique</span><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~5 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 35 o casal</span><span class="chip"><svg class="ico"><use href="#i-bed"/></svg>Radisson · Glattpark</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zuerich_Hauptbahnhof-2.jpg?width=960" alt="Fachada do Zürich Hauptbahnhof, a estação central de Zurique, ponto de chegada do trem de Munique"><figcaption>Zürich Hauptbahnhof — chegada e três dias a pé · Wikimedia Commons</figcaption></figure>
+  </div>
+  <h4 class="gal-title" id="gal-d1t"><svg class="ico"><use href="#i-star"/></svg>O que vocês verão hoje — e nos três dias de Zurique</h4>
+  <div class="gal" role="list" aria-labelledby="gal-d1t">
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_zurich_panorama_grossmunster_limmat_river_2012.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1_zurich_panorama_grossmunster_limmat_river_2012.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/1_zurich_panorama_grossmunster_limmat_river_2012.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Cidade velha de Zurique ao longo do rio Limmat, com o Grossmünster ao fundo"></div><div class="tx"><h5>Cidade velha (Altstadt)</h5><p>Vielas medievais dos dois lados do Limmat — o passeio central da tarde de chegada.</p><div class="meta"><span class="when">Dom, tarde</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Grossm%C3%BCnster_-_view_from_M%C3%BCnsterbr%C3%BCcke.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Grossm%C3%BCnster_-_view_from_M%C3%BCnsterbr%C3%BCcke.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Grossm%C3%BCnster_-_view_from_M%C3%BCnsterbr%C3%BCcke.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="As duas torres gêmeas do Grossmünster vistas da ponte Münsterbrücke"></div><div class="tx"><h5>Grossmünster</h5><p>As torres gêmeas símbolo de Zurique; subir a torre Karlsturm é opcional (~CHF 5).</p><div class="meta"><span class="when">Dom, tarde</span><span class="pill must">Must do</span><span class="pill free">Igreja grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Z%C3%BCrich_-_Fraum%C3%BCnster_-_M%C3%BCnsterhof_-_Zunfthaus_zur_Meisen_-_Sicht_vom_Grossm%C3%BCnster_Karlsturm_IMG_6390.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Z%C3%BCrich_-_Fraum%C3%BCnster_-_M%C3%BCnsterhof_-_Zunfthaus_zur_Meisen_-_Sicht_vom_Grossm%C3%BCnster_Karlsturm_IMG_6390.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Z%C3%BCrich_-_Fraum%C3%BCnster_-_M%C3%BCnsterhof_-_Zunfthaus_zur_Meisen_-_Sicht_vom_Grossm%C3%BCnster_Karlsturm_IMG_6390.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A Fraumünster e a praça Münsterhof vistas do alto da torre do Grossmünster"></div><div class="tx"><h5>Fraumünster</h5><p>Abriga os cinco vitrais de Marc Chagall (1970) — fotos dos vitrais não são permitidas lá dentro, mas valem a visita.</p><div class="meta"><span class="when">Dom, tarde</span><span class="pill must">Must do</span><span class="pill pay">CHF 5</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/7163_-_Z%C3%BCrich_-_Lindenhof.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/7163_-_Z%C3%BCrich_-_Lindenhof.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/7163_-_Z%C3%BCrich_-_Lindenhof.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A praça arborizada no topo da colina Lindenhof, em Zurique, com mesas de xadrez gigante"></div><div class="tx"><h5>Lindenhof</h5><p>Colina romana com a melhor vista gratuita da cidade velha e do Limmat — subida suave, 5 min.</p><div class="meta"><span class="when">Dom, tarde</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Blick_vom_Z%C3%BCrichsee_auf_Quaibr%C3%BCcke_und_Grossm%C3%BCnster_(2009).jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Blick_vom_Z%C3%BCrichsee_auf_Quaibr%C3%BCcke_und_Grossm%C3%BCnster_(2009).jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Blick_vom_Z%C3%BCrichsee_auf_Quaibr%C3%BCcke_und_Grossm%C3%BCnster_(2009).jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O Lago de Zurique visto da água, com a ponte Quaibrücke e o Grossmünster ao fundo"></div><div class="tx"><h5>Lago de Zurique · Bürkliplatz</h5><p>Fim de tarde na margem, com os Alpes no horizonte em dia limpo — o ritual de encerramento dos três dias.</p><div class="meta"><span class="when">Dom, 17h+</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Landesmuseum_Z%C3%BCrich_Innenhof.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Landesmuseum_Z%C3%BCrich_Innenhof.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Landesmuseum_Z%C3%BCrich_Innenhof.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Pátio interno do Museu Nacional Suíço, em Zurique, com suas torres em estilo de castelo"></div><div class="tx"><h5>Museu Nacional Suíço</h5><p>Ao lado da estação, em prédio-castelo de 1898 — a opção de terça à tarde (fecha às segundas).</p><div class="meta"><span class="when">Ter, tarde</span><span class="pill opt">Opcional</span><span class="pill pay">~CHF 13/pessoa</span></div></div></article>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">Manhã</p><h4>Munique → Zurique</h4><div class="meta"><span class="pill pay">Bilhete próprio</span></div><p>Cerca de 3h30–4h de trem. Bilhete próprio, fora do Swiss Travel Pass — <b>confirme os assentos pouco antes da viagem</b>. Na chegada: tram da HB até o <b>Radisson Hotel &amp; Suites</b> (parada Glattpark, ~20 min; bilhete ZVV no app) para deixar as malas, e de volta ao centro. O ShopVille dentro da Zürich HB é a exceção de domingo para compras.</p></li><li class="k"><p class="t">Tarde</p><h4>Cidade velha a pé</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">Grátis</span></div><p><a class='ext' href='https://www.grossmuenster.ch/en/' target='_blank' rel='noopener'>Grossmünster</a>, os vitrais de Chagall na <a class='ext' href='https://www.fraumuenster.ch/' target='_blank' rel='noopener'>Fraumünster</a>, a colina Lindenhof e a <a class='ext' href='https://www.zuerich.com/en/visit/shopping/bahnhofstrasse' target='_blank' rel='noopener'>Bahnhofstrasse</a>. Tudo a poucos minutos a pé — domingo a cidade fica tranquila.</p></li><li><p class="t">Fim de tarde</p><h4>Margem do lago</h4><div class="meta"><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div><p>Caminhada da <a class='ext' href='https://www.zuerich.com/en/visit/attractions/lake-zurich' target='_blank' rel='noopener'>Bürkliplatz</a> até Seefeld, com o pôr do sol sobre o lago e os Alpes no horizonte.</p></li><li><p class="t">Noite</p><h4>Jantar no quarto e descanso</h4><p>Amanhã começa o treinamento. Compras no ShopVille (aberto domingo) resolvem o jantar.</p></li></ol>
+  <div class="mapwrap">
+  <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Zurique a pé — um mapa para os três dias (dom 30, seg 31, ter 1)</p>
+  <div class="maplegend" data-legend="walk,opt"></div>
+  <div id="mapZH" class="leaf" role="img" aria-label="Mapa de Zurique a pé: estação central, Bahnhofstrasse, Lindenhof, Grossmünster, Fraumünster, Paradeplatz, Bürkliplatz e margem do lago"><div class="fallback">O mapa precisa de conexão. A lista de paradas abaixo funciona offline.</div></div>
+  <p class="mapnote">Passeio sugerido de ~4 km — <b>a ordem pode mudar</b> conforme o dia; nada aqui tem hora marcada. O hotel (Radisson, parada Glattpark) fica fora deste mapa, ~20 min de tram da HB. Local do treinamento ACMS (Freikirche der STA): endereço exato ainda a confirmar — não marcado no mapa.</p>
+  <div class="stops"><div class="stop"><span class="n">1</span><div><b>Zürich HB + ShopVille</b><small>Supermercado no subsolo — o único aberto aos domingos</small></div></div><div class="stop"><span class="n">2</span><div><b>Museu Nacional Suíço</b><small>Ao lado da estação · ter à tarde, ~CHF 13</small></div></div><div class="stop"><span class="n">3</span><div><b>Bahnhofstrasse</b><small>Coop/Migros ao longo da rua · Victorinox na Rennweg</small></div></div><div class="stop k"><span class="n">4</span><div><b>Lindenhof</b><small>Vista gratuita da cidade velha</small></div></div><div class="stop k"><span class="n">5</span><div><b>Grossmünster</b><small>As torres símbolo da cidade</small></div></div><div class="stop k"><span class="n">6</span><div><b>Fraumünster</b><small>Vitrais de Chagall · CHF 5</small></div></div><div class="stop"><span class="n">7</span><div><b>Paradeplatz · Sprüngli</b><small>Luxemburgerli, ~CHF 8</small></div></div><div class="stop k"><span class="n">8</span><div><b>Bürkliplatz</b><small>Fim de tarde à beira do lago</small></div></div><div class="stop"><span class="n">9</span><div><b>Passeio do lago (Utoquai → Seefeld)</b><small>Pôr do sol com os Alpes ao fundo</small></div></div></div>
+</div>
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val">No trem — leve algo de Munique<small>ou padaria na estação, CHF 5–8</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val">Lanche a bordo / ShopVille na chegada<small>sanduíche + fruta, CHF 8–12</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">Compras no ShopVille, no quarto<small>pão, queijo, salada pronta, iogurte</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Luxemburgerli</b> da Sprüngli (Paradeplatz)<small>macarons suíços em miniatura — compre 6, ~CHF 8</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 18–24/pessoa</b><small>CHF 36–48 o casal</small></div>
+    <div>Plano confortável<b>CHF 35–45/pessoa</b><small>CHF 70–90 o casal</small></div>
+    <div>Economia possível<b>CHF ~45</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Jantar de supermercado na noite da chegada: vocês estarão cansados e tudo fecha cedo no domingo.</span></div><div class="spend"><span class="tag">Vale gastar</span><span>Os Luxemburgerli valem os CHF 8 — é o único doce genuinamente de Zurique.</span></div></div>
+</div>
+  <div class="cards two"><div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Plano B de chuva</h5><p>Zurique é a cidade mais à prova de chuva da viagem: as arcadas da Altstadt cobrem boa parte do trajeto e o <a class='ext' href='https://www.nationalmuseum.ch/en/Landesmuseum_Zuerich' target='_blank' rel='noopener'>Museu Nacional Suíço</a> fica ao lado da estação. Guarde a margem do lago para o dia mais bonito.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-info"/></svg>Instale hoje</h5><ul><li><b>SBB Mobile</b> — horários em tempo real, plataformas e conexões. Baixe os horários para uso offline.</li><li><b>MeteoSwiss</b> — previsão por vale e por altitude, essencial para decidir os dias de montanha.</li><li><b>Google Maps offline</b> da região de Interlaken.</li></ul></div><div class="card slow"><h5><svg class="ico"><use href="#i-leaf"/></svg>Momento de desacelerar</h5><p>Fim de tarde num banco da <b>Bürkliplatz</b>, de frente para o lago. Deixe o fuso assentar antes da semana começar.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Onde comprar comida</h5><p><b>ShopVille</b>, no subsolo da Zürich HB — o único supermercado aberto aos domingos. Coop e Migros da estação fecham por volta das 21h.</p><p>💧 As fontes públicas de Zurique são água potável — encha a garrafa em vez de comprar.</p></div></div>
+</article>
+<article class="day" id="d2" aria-labelledby="h-d2">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 2 · Segunda, 31 de agosto</p>
+    <h3 id="h-d2">Treinamento · Zurique a pé</h3>
+    <p class="desc">Tiago em treinamento; Miriam com um dia leve e caminhável no centro. À noite, o lago juntos.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~6 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 45 o casal</span><span class="chip"><svg class="ico"><use href="#i-info"/></svg>Sem pass — tram ZVV hotel ⇄ centro</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/ZSG_-_Stadt_Z%C3%BCrich_IMG_2350.jpg?width=960" alt="O barco Stadt Zürich da ZSG navegando no Lago de Zurique, perto da Bürkliplatz"><figcaption>Lago de Zurique na Bürkliplatz — o encontro do fim de tarde · Wikimedia Commons</figcaption></figure>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">Dia</p><h4>Tiago — treinamento ACMS</h4><p>Freikirche der STA, Zurique. Dia 1 de 2.</p></li><li><p class="t">Dia</p><h4>Miriam — centro a pé</h4><div class="meta"><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div><p>Tram do hotel até a HB e, dali, tudo a poucos minutos a pé: Altstadt, Lindenhof, vitrines da Bahnhofstrasse e a margem do lago. Descanso do fuso e compras para o jantar.</p></li><li><p class="t">Noite</p><h4>Juntos na Bürkliplatz</h4><div class="meta"><span class="pill rec">Recomendado</span></div><p>Passeio à beira do lago no fim do dia e jantar no quarto.</p></li></ol>
+  
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b> — CHF 0<small>reforcem bem antes do tram para o centro</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val">Take-away quente do Coop/Migros<small>frango, massa ou salada, CHF 8–12</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">No quarto, compras do mercado<small>CHF 10–15 por pessoa</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Birchermüesli</b><small>inventado em Zurique — aveia, maçã ralada, iogurte e nozes. Ótimo até na versão de supermercado</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 18–24/pessoa</b><small>CHF 36–48 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 30–42/pessoa</b><small>CHF 60–84 o casal</small></div>
+    <div>Economia possível<b>CHF ~50</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Take-away quente do supermercado ao meio-dia custa metade de um prato de restaurante e é igualmente decente.</span></div><div class="save"><span class="tag">Economize</span><span>Refil de água nas fontes: uma garrafinha comprada custa CHF 3–4 e vocês beberiam 3 por dia.</span></div></div>
+</div>
+  <div class="cards two"><div class="card warn"><h5><svg class="ico"><use href="#i-info"/></svg>Museus fechados</h5><p>Kunsthaus e Museu Nacional <b>fecham às segundas</b>. Sem o pass ativo, a entrada seria paga (~CHF 24/pessoa) — deixe para amanhã, quando o Nacional custa ~CHF 13.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Onde comprar</h5><p><b>Coop</b> e <b>Migros</b> na Bahnhofstrasse e na estação. Procure as linhas econômicas <b>Prix Garantie</b> (Coop) e <b>M-Budget</b> (Migros) — mesma qualidade, metade do preço.</p></div></div>
+</article>
+<article class="day" id="d3" aria-labelledby="h-d3">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 3 · Terça, 1 de setembro</p>
+    <h3 id="h-d3">Treinamento · último dia de cidade</h3>
+    <p class="desc">Encerramento do treinamento, manhã leve e malas prontas para os Alpes.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~5 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 45–70 o casal</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Landesmuseum_Z%C3%BCrich_Innenhof.jpg?width=960" alt="Pátio interno do Museu Nacional Suíço, em Zurique — opção para a tarde livre de terça"><figcaption>Museu Nacional Suíço, ao lado da Zürich HB — a opção da tarde de terça · Wikimedia Commons</figcaption></figure>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">Dia</p><h4>Tiago — treinamento ACMS</h4><p>Dia 2 de 2, encerramento.</p></li><li><p class="t">Manhã</p><h4>Miriam — igrejas e padarias</h4><div class="meta"><span class="pill rec">Recomendado</span></div><p>Grossmünster e Fraumünster (entrada simbólica), padarias do centro e reforço da despensa para os próximos dias.</p></li><li><p class="t">Tarde/noite</p><h4>Juntos</h4><div class="meta"><span class="pill opt">Opcional</span><span class="pill pay">CHF 26 o casal</span></div><p>Se quiserem um museu, o <a class='ext' href='https://www.nationalmuseum.ch/en/Landesmuseum_Zuerich' target='_blank' rel='noopener'>Museu Nacional Suíço</a> fica ao lado da estação (~CHF 13/pessoa). Senão, caminhada no lago.</p></li><li><p class="t">Noite</p><h4>Arrumar as malas</h4><p>Amanhã os passes ativam e a viagem muda de ritmo.</p></li></ol>
+  
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b> — CHF 0<small>as padarias do centro viram lanche da tarde</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val">Piquenique no Lindenhof ou à beira do lago<small>CHF 8–12</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">No quarto<small>CHF 10–15</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Zürcher Geschnetzeltes</b> — vitela em molho cremoso com rösti<small>⚠️ o molho leva vinho branco; peça <i>ohne Wein</i> ou escolha rösti com queijo e ovo</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 18–24/pessoa</b><small>CHF 36–48 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 33–45/pessoa</b><small>CHF 66–90 o casal</small></div>
+    <div>Economia possível<b>CHF ~50</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Faça a compra grande hoje: nos próximos três dias vocês estarão em vilarejos onde o mercado é pequeno e mais caro.</span></div></div>
+</div>
+  <div class="cards two"><div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Compre hoje o que é caro na montanha</h5><p>Chocolate, barras de cereal, castanhas e frutas secas para os dias de trilha. Nos vilarejos alpinos os mesmos itens custam o dobro.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-info"/></svg>Canivete suíço</h5><p>A loja <a class='ext' href='https://www.victorinox.com/' target='_blank' rel='noopener'>Victorinox</a> na Rennweg grava o nome de graça na hora — bem melhor que comprar no aeroporto. <b>Vai na mala despachada.</b></p></div></div>
+</article>
+<article class="day" id="d4" aria-labelledby="h-d4">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 4 · Quarta, 2 de setembro</p>
+    <h3 id="h-d4">Lucerna e o trem panorâmico do Brünig</h3>
+    <p class="desc">Os passes ativam hoje. Um dia inteiro na cidade-cartão-postal e a entrada mais bonita possível em Interlaken — só 2h35 de trem no total.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-train"/></svg>~2h35 de trem · no pass</span><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~7 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 105 o casal</span><span class="chip"><svg class="ico"><use href="#i-bed"/></svg>Check-in Unterseen</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lungerersee_from_Br%C3%BCnigpass.jpg?width=960" alt="O Lago de Lungern, turquesa, visto do alto do passo do Brünig — a vista do trem panorâmico"><figcaption>Lago de Lungern visto do passo do Brünig — a vista do trem para Interlaken · Wikimedia Commons</figcaption></figure>
+  </div>
+  <h4 class="gal-title" id="gal-d4t"><svg class="ico"><use href="#i-star"/></svg>O que vocês verão hoje</h4>
+  <div class="gal" role="list" aria-labelledby="gal-d4t">
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_Kapellbr%C3%BCcke_img3.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_Kapellbr%C3%BCcke_img3.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_Kapellbr%C3%BCcke_img3.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A ponte de madeira coberta Kapellbrücke sobre o rio Reuss, com a torre Wasserturm, em Lucerna"></div><div class="tx"><h5>Kapellbrücke</h5><p>A ponte coberta de 1333 com a torre d'água — o cartão-postal de Lucerna, coberta até com chuva.</p><div class="meta"><span class="when">09h30</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_L%C3%B6wendenkmal_img2.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_L%C3%B6wendenkmal_img2.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_asv2022-10_L%C3%B6wendenkmal_img2.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O Monumento do Leão de Lucerna, esculpido na rocha, cercado de vegetação"></div><div class="tx"><h5>Monumento do Leão</h5><p>O leão moribundo esculpido na rocha em 1821 — Mark Twain o chamou de "a pedra mais triste do mundo".</p><div class="meta"><span class="when">~11h</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_-_Museggmauer_mit_Zeitturm_und_Wachturm.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_-_Museggmauer_mit_Zeitturm_und_Wachturm.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Luzern_-_Museggmauer_mit_Zeitturm_und_Wachturm.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A muralha Musegg de Lucerna com as torres Zeitturm e Wachturm"></div><div class="tx"><h5>Muralha Musegg</h5><p>Muralha do séc. XIV com nove torres — dá para subir em algumas de graça, com vista do lago.</p><div class="meta"><span class="when">~11h45</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff_Uri.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff_Uri.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff_Uri.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vapor de rodas Uri navegando no Lago dos Quatro Cantões"></div><div class="tx"><h5>Cruzeiro no Lago dos Quatro Cantões</h5><p>Uma volta de barco saindo do píer em frente à estação — se calhar num vapor histórico, melhor ainda.</p><div class="meta"><span class="when">Tarde</span><span class="pill rec">Recomendado</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/TrainApproachingBruenigHasliberg.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/TrainApproachingBruenigHasliberg.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/TrainApproachingBruenigHasliberg.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Trem da Zentralbahn chegando à estação Brünig-Hasliberg, no alto do passo"></div><div class="tx"><h5>Luzern–Interlaken Express</h5><p>O trem regular da Zentralbahn (janelas panorâmicas de série): sobe o Brünig por cremalheira e desce ao Lago de Brienz. Sem reserva.</p><div class="meta"><span class="when">16h00</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/CH.BE.Interlaken.Unterseen_2021-04-23_16x9%2BR_16384x9216.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/CH.BE.Interlaken.Unterseen_2021-04-23_16x9%2BR_16384x9216.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/CH.BE.Interlaken.Unterseen_2021-04-23_16x9%2BR_16384x9216.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O casario histórico de Unterseen, em Interlaken, com montanhas ao fundo"></div><div class="tx"><h5>Unterseen — a base alpina</h5><p>O bairro histórico do séc. XIII onde vocês dormem as próximas três noites, a 8 min da Interlaken West.</p><div class="meta"><span class="when">18h00</span><span class="pill must">Check-in</span></div></div></article>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">08h30</p><h4>Zurique → Lucerna</h4><div class="meta"><span class="pill free">No pass</span></div><p>45 min direto. Trecho comum, sem grandes vistas — se puder escolher, pegue o trem <b>via Zug</b>, que margeia o lago por alguns minutos. Malas nos lockers ao chegar (<b>CHF 6–9</b>).</p></li><li class="k"><p class="t">09h30–15h30</p><h4>Lucerna a pé</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">Grátis</span></div><p>A <a class='ext' href='https://www.luzern.com/en/poi/chapel-bridge-and-water-tower/' target='_blank' rel='noopener'>Kapellbrücke</a> de 1333, as praças pintadas da cidade velha, o <a class='ext' href='https://www.luzern.com/en/poi/lion-monument/' target='_blank' rel='noopener'>Monumento do Leão</a> e a <a class='ext' href='https://www.luzern.com/en/poi/musegg-wall/' target='_blank' rel='noopener'>muralha Musegg</a>, cujas torres dá para subir de graça. Guia da cidade: <a class='ext' href='https://www.luzern.com/en' target='_blank' rel='noopener'>luzern.com</a>.</p></li><li><p class="t">Tarde</p><h4>Mini-cruzeiro no Lago dos Quatro Cantões</h4><div class="meta"><span class="pill rec">Recomendado</span><span class="pill free">No pass</span></div><p>Com o dia inteiro, cabe sem pressa — e é <b>gratuito com o pass</b>. Horários em <a class='ext' href='https://www.lakelucerne.ch/en/' target='_blank' rel='noopener'>lakelucerne.ch</a>; confirme pouco antes da viagem.</p></li><li><p class="t">Se chover</p><h4>Museu Suíço dos Transportes</h4><div class="meta"><span class="pill opt">Opcional</span><span class="pill pay">~CHF 20/pessoa</span></div><p>O melhor museu do país para um dia molhado, <b>50% com o pass</b>. <a class='ext' href='https://www.verkehrshaus.ch/en' target='_blank' rel='noopener'>verkehrshaus.ch</a></p></li><li class="k"><p class="t">16h00</p><h4>Luzern–Interlaken Express</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">No pass · sem reserva</span></div><p>1h50 pelos lagos de Sarnen e Lungern, o passo do Brünig e a descida ao Lago de Brienz. É o <b>trem regular da linha</b> (sai a cada hora, janelas panorâmicas de série): coberto pelo pass, <b>sem suplemento e sem reserva</b> — cheguem ~10 min antes e escolham lugar livre. <a class='ext' href='https://www.zentralbahn.ch/en/luzern-interlaken-express' target='_blank' rel='noopener'>zentralbahn.ch</a><br><b>Onde sentar:</b> Sarnen e Lungern ficam à direita na primeira metade; depois do passo, o Lago de Brienz aparece à esquerda. Vale trocar de lado no meio.</p></li><li><p class="t">18h00</p><h4>Check-in em Unterseen</h4><div class="meta"><span class="pill must">Must do</span></div><p><b>Hotel Central Continental</b> (Bahnhofstrasse 43), com <b>café da manhã incluído</b> nas três manhãs. O bairro histórico de Interlaken — pracinha do séc. XVII e vielas de pedra, a ~8 min a pé da estação Interlaken West. <a class='ext' href='https://www.interlaken.swiss/en/experiences/poi/unterseen/' target='_blank' rel='noopener'>Sobre Unterseen</a></p></li></ol>
+  <div class="mapwrap">
+  <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Quarta 2 set — Zurique, Lucerna e o Brünig</p>
+  <div class="maplegend" data-legend="train,scenic,boat,walk"></div>
+  <div id="mapa2m" class="leaf" role="img" aria-label="Quarta 2 set — Zurique, Lucerna e o Brünig"><div class="fallback">O mapa precisa de conexão. A lista de paradas abaixo funciona offline.</div></div>
+  <p class="mapnote">Traçado aproximado, para orientação — não segue o alinhamento exato dos trilhos. O trecho cênico do Brünig é feito no <b>trem regular</b> da linha (no pass, sem reserva). O cruzeiro no lago é recomendado, mas decide-se na hora conforme o tempo.</p>
+  <div class="stops"><div class="stop"><span class="n">1</span><div><b>Zurique HB · 08h30</b><small>Trem direto a Lucerna, ~45 min</small></div></div><div class="stop"><span class="n">2</span><div><b>Lucerna, estação · 09h15</b><small>Malas nos lockers</small></div></div><div class="stop k"><span class="n">3</span><div><b>Kapellbrücke</b><small>A ponte de madeira de 1333</small></div></div><div class="stop k"><span class="n">4</span><div><b>Monumento do Leão</b><small>O leão esculpido na rocha, grátis</small></div></div><div class="stop k"><span class="n">5</span><div><b>Muralha Musegg</b><small>Torres com subida gratuita</small></div></div><div class="stop k"><span class="n">6</span><div><b>Cruzeiro no lago</b><small>Lago dos Quatro Cantões — no pass</small></div></div><div class="stop k"><span class="n">7</span><div><b>Passo do Brünig · ~16h40</b><small>Trem panorâmico para Interlaken</small></div></div><div class="stop"><span class="n">8</span><div><b>Unterseen · 18h</b><small>Check-in no bairro histórico</small></div></div></div>
+</div>
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b>, antes do check-out — CHF 0<small>saiam alimentados: o dia é longo</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val"><b>Piquenique à beira do Reuss</b><small>compre no Coop da estação de Lucerna antes de descer ao centro: pão, queijo, tomate, fruta — CHF 10–14</small></p></div><div class="meal"><p class="lbl">Café da tarde</p><p class="val">Padaria da cidade velha<small>fatia de bolo + café, CHF 8–12 os dois</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">Compras no Coop da Interlaken Ost, no quarto<small>a compra grande dos três dias sai hoje, ~CHF 70 o casal — sem itens de café da manhã: o hotel inclui</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Luzerner Chügelipastete</b> — torta folhada com vitela e cogumelos<small>⚠️ algumas versões levam carne de porco e vinho no molho: pergunte <i>nur Kalbfleisch, ohne Wein</i></small></p></div><div class="meal"><p class="lbl">Piquenique</p><p class="val">Margem do Reuss ou o gramado do Inseli, ao lado da estação<small>bancos, sombra e vista das pontes</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 19–26/pessoa</b><small>CHF 38–52 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 35–48/pessoa</b><small>CHF 70–96 o casal</small></div>
+    <div>Economia possível<b>CHF ~60</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Faça a compra grande dos três dias em Interlaken hoje: nos vilarejos alpinos os mesmos itens custam bem mais.</span></div><div class="spend"><span class="tag">Vale gastar</span><span>Um café com bolo à beira do Reuss — é o momento contemplativo do dia e custa menos que um almoço.</span></div></div>
+</div>
+  <div class="cards two"><div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Plano B de chuva</h5><p>Lucerna funciona molhada: a Kapellbrücke é coberta, a cidade velha tem arcadas e o Museu dos Transportes resolve a tarde. O que perde graça é o cruzeiro — decida na hora.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-clock"/></svg>Realismo de horários</h5><p>Dia confortável. O único ponto a vigiar é o <b>trem das 16h</b>: esteja na estação às 15h45 para pegar as malas com calma. Se perder, há outro em ~1h e vocês chegam às 19h.</p></div><div class="card slow"><h5><svg class="ico"><use href="#i-leaf"/></svg>Momento de desacelerar</h5><p>Um café na margem do <b>rio Reuss</b>, entre a Kapellbrücke e a Spreuerbrücke, vendo os cisnes. Uma hora aqui vale mais que dois museus.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Compras e lembranças</h5><p><b>Chocolate:</b> <a class='ext' href='https://www.maxchocolatier.com/' target='_blank' rel='noopener'>Max Chocolatier</a> e Läderach no centro — metade do preço do aeroporto.<br><b>Mercado:</b> Coop e Migros na estação de Lucerna e o <b>Coop da Interlaken Ost</b>, que abre até tarde e também aos domingos.</p></div></div>
+</article>
+<article class="day" id="d5" aria-labelledby="h-d5">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 5 · Quinta, 3 de setembro</p>
+    <h3 id="h-d5">Grindelwald, o tobogã, Lauterbrunnen e Mürren</h3>
+    <p class="desc">O dia mais completo da viagem: três vilarejos, um tobogã de montanha e um barco no lago — e só o tobogã é pago.</p>
+    <div class="chips"><span class="chip wxdep"><svg class="ico"><use href="#i-cloud"/></svg>Depende do tempo</span><span class="chip"><svg class="ico"><use href="#i-train"/></svg>Trem, teleférico e barco · no pass</span><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~7 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 70 o casal</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Eiger%2C_M%C3%B6nch_and_Jungfrau.jpg?width=960" alt="Os picos Eiger, Mönch e Jungfrau enfileirados, vistos de longe"><figcaption>Eiger, Mönch e Jungfrau — os três picos acompanham o dia inteiro · Wikimedia Commons</figcaption></figure>
+  </div>
+  <h4 class="gal-title" id="gal-d5t"><svg class="ico"><use href="#i-star"/></svg>O que vocês verão hoje</h4>
+  <div class="gal" role="list" aria-labelledby="gal-d5t">
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/00_3403_Grindelwald-First_(Schweiz).jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/00_3403_Grindelwald-First_(Schweiz).jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/00_3403_Grindelwald-First_(Schweiz).jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vilarejo de Grindelwald espalhado pelo vale, visto da encosta de First"></div><div class="tx"><h5>Grindelwald sob o Eiger</h5><p>Chalés espalhados pelo vale com a parede norte de 1.800 m logo atrás — a primeira parada do circuito.</p><div class="meta"><span class="when">09h–10h</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Rodelbahn_Floomzer_in_Flumserberg_-_panoramio.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Rodelbahn_Floomzer_in_Flumserberg_-_panoramio.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Rodelbahn_Floomzer_in_Flumserberg_-_panoramio.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Tobogã alpino sobre trilhos em Flumserberg, Suíça — carrinho do mesmo tipo do Rodelbahn de Pfingstegg"></div><div class="tx"><h5>Pfingstegg · Rodelbahn</h5><p>Tobogã de 700 m sobre trilhos que vocês mesmos freiam — uma descida cada, após o teleférico a 1.387 m. <i>Foto ilustrativa: tobogã do mesmo tipo em Flumserberg (CH); a pista de Pfingstegg em pfingstegg.ch.</i> Fecha com chuva.</p><div class="meta"><span class="when">10h–11h30</span><span class="pill must">Must do</span><span class="pill pay">~CHF 48 o casal</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lauterbrunnen_Staubbach.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Lauterbrunnen_Staubbach.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Lauterbrunnen_Staubbach.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A cascata Staubbach despencando 297 metros sobre o vilarejo de Lauterbrunnen"></div><div class="tx"><h5>Cascata Staubbach · Lauterbrunnen</h5><p>297 m de queda livre sobre o vilarejo; passarela gratuita até atrás da água (~20 min de subida).</p><div class="meta"><span class="when">12h30</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lauterbrunnen_valley%2C_mountain_railway_line_of_Bergbahn_Lauterbrunnen_-_M%C3%BCrren_(BLM)%2C_cable_car_station_Gr%C3%BCtschalp%2C_Mirrenflue_-_1_lauterbrunnen_valley_wengen_2022_(cropped).jpg?width=960" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A linha do trenzinho BLM na encosta sobre o vale de Lauterbrunnen, com a estação de Grütschalp"></div><div class="tx"><h5>Grütschalp → Mürren (linha BLM)</h5><p>Teleférico de 686 m e trenzinho na beira do precipício — a chegada mais bonita a Mürren.</p><div class="meta"><span class="when">13h45</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_M%C3%BCrren_2022.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/1_M%C3%BCrren_2022.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/1_M%C3%BCrren_2022.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vilarejo sem carros de Mürren no terraço da montanha, com os três picos ao fundo"></div><div class="tx"><h5>Mürren</h5><p>Vilarejo sem carros a 1.638 m, num terraço 800 m acima do vale — café na varanda com a vista da viagem.</p><div class="meta"><span class="when">14h30</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lauterbrunnen_valley%2C_waterfall_-_Kleiner_Staubbach-Wasserfall_und_Staubbachfall_%C3%BCber_Lauterbrunnen%2C_Im_lenge_Schwand_Bergwiesen_und_Bergwald%2C_Winteregg_-_1_lauterbrunnen_valley_wengen_2022_(cropped).jpg?width=960" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Prados e bosques na encosta de Winteregg, sobre o vale de Lauterbrunnen e suas cascatas"></div><div class="tx"><h5>Trilha Mürren–Winteregg</h5><p>~1h15 quase plana por prados como estes, com os três picos de frente — só se sobrar tempo e céu.</p><div class="meta"><span class="when">15h45</span><span class="pill opt">Opcional</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/4748_-_Stechelberg_-_Schilthornbahn.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/4748_-_Stechelberg_-_Schilthornbahn.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/4748_-_Stechelberg_-_Schilthornbahn.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A cabine do teleférico Schilthornbahn subindo de Stechelberg, no fundo do vale"></div><div class="tx"><h5>Descida por Stechelberg</h5><p>O teleférico mais inclinado do mundo (159,4%) fecha o circuito pelo fundo do vale — rota alternativa de volta.</p><div class="meta"><span class="when">16h30</span><span class="pill opt">Opcional</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/5898_-_B%C3%B6nigen_-_Brienzersee.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/5898_-_B%C3%B6nigen_-_Brienzersee.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/5898_-_B%C3%B6nigen_-_Brienzersee.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="As águas azul-turquesa do Lago de Brienz vistas de Bönigen, perto de Interlaken"></div><div class="tx"><h5>Barco no Lago de Brienz</h5><p>O lago mais turquesa da Suíça, rumo a Iseltwald e Giessbach — só se o dia render e o barco ainda sair.</p><div class="meta"><span class="when">17h30</span><span class="pill opt">Opcional</span><span class="pill free">No pass</span></div></div></article>
+  </div>
+  <ol class="tl"><li><p class="t">08h15</p><h4>Interlaken Ost → Grindelwald</h4><div class="meta"><span class="pill free">No pass</span></div><p>~35 min subindo o vale de Lütschine. Trens a cada 30 min.</p></li><li class="k"><p class="t">09h–10h</p><h4>Grindelwald sob a face norte do Eiger</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">Grátis</span></div><p>O vilarejo mais famoso dos Alpes, com a parede de 1.800 m atrás das casas. Ônibus locais grátis com o pass. <a class='ext' href='https://www.grindelwald.swiss/en/' target='_blank' rel='noopener'>grindelwald.swiss</a></p></li><li class="k"><p class="t">10h–11h30</p><h4>Pfingstegg — o tobogã</h4><div class="meta"><span class="pill must">Must do</span><span class="pill pay">CHF 32 + ~16 o casal</span></div><p>Ônibus de 5 min até o teleférico e subida a 1.387 m. Lá em cima o <b>Rodelbahn</b>: 700 m de carrinho sobre trilhos que vocês mesmos freiam. <b>Uma descida cada</b> (~CHF 8/pessoa) já vale a experiência. <a class='ext' href='https://www.pfingstegg.ch/en/discover/toboggan' target='_blank' rel='noopener'>pfingstegg.ch</a><br>Compra só no local. <b>Fecha com chuva.</b></p></li><li><p class="t">11h45</p><h4>Grindelwald → Lauterbrunnen</h4><div class="meta"><span class="pill free">No pass</span></div><p>Troca em Zweilütschinen, onde os dois vales se encontram. ~40 min.</p></li><li class="k"><p class="t">12h30</p><h4>Lauterbrunnen e a cascata Staubbach</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">Grátis</span></div><p>297 m de queda livre sobre o vilarejo; a passarela até atrás da água é gratuita (~20 min de subida). Piquenique no gramado em frente. <a class='ext' href='https://www.lauterbrunnen.swiss/en/' target='_blank' rel='noopener'>lauterbrunnen.swiss</a></p></li><li><p class="t">13h45</p><h4>Teleférico e trenzinho até Mürren</h4><div class="meta"><span class="pill free">No pass</span></div><p>686 m de subida até Grütschalp e trem panorâmico na beira do precipício — <b>ambos totalmente gratuitos com o pass</b>. <a class='ext' href='https://www.jungfrau.ch/en-gb/winteregg-muerren/' target='_blank' rel='noopener'>Linha BLM</a></p></li><li class="k"><p class="t">14h30</p><h4>Mürren</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">No pass</span></div><p>Vilarejo <b>sem carros</b> a 1.638 m, num terraço 800 m acima do vale. Não há estrada até aqui — quase nenhum turista de ônibus. <a class='ext' href='https://www.jungfrau.ch/en-gb/muerren/' target='_blank' rel='noopener'>jungfrau.ch</a></p></li><li><p class="t">15h45</p><h4>Trilha Mürren → Winteregg → Grütschalp</h4><div class="meta"><span class="pill opt">Se sobrar tempo</span><span class="pill free">Grátis</span></div><p>~1h15 quase plana, com os três picos de frente. Trem de volta em qualquer estação.</p></li><li><p class="t">16h30</p><h4>Descida por Stechelberg</h4><div class="meta"><span class="pill opt">Se sobrar tempo</span><span class="pill free">No pass</span></div><p>O teleférico mais inclinado do mundo (159,4%) — também gratuito com o pass — e ônibus até Lauterbrunnen. Fecha o circuito por outra rota.</p></li><li><p class="t">17h30</p><h4>Barco pelo Lago de Brienz</h4><div class="meta"><span class="pill opt">Se sobrar tempo</span><span class="pill free">No pass</span></div><p>De Interlaken Ost a Iseltwald e às <a class='ext' href='https://www.giessbach.ch/en/' target='_blank' rel='noopener'>cascatas de Giessbach</a>. Confirme o último horário em <a class='ext' href='https://www.bls-schiff.ch' target='_blank' rel='noopener'>bls-schiff.ch</a>.</p></li><li><p class="t">19h30</p><h4>Volta a Unterseen</h4><p>Passeio pela <a class='ext' href='https://www.interlaken.swiss/en/experiences/poi/hoehematte/' target='_blank' rel='noopener'>Höhematte</a> com a Jungfrau de frente e jantar no quarto.</p></li></ol>
+  <div class="mapwrap">
+  <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Quinta 3 set — o circuito dos três vilarejos</p>
+  <div class="maplegend" data-legend="train,cable,walk,boat,opt"></div>
+  <div id="mapa3m" class="leaf" role="img" aria-label="Quinta 3 set — o circuito dos três vilarejos"><div class="fallback">O mapa precisa de conexão. A lista de paradas abaixo funciona offline.</div></div>
+  <p class="mapnote"><b>Núcleo do dia (linhas cheias):</b> Interlaken Ost → Grindelwald → Pfingstegg → Lauterbrunnen → Grütschalp → Mürren → volta por Grütschalp. <b>Opcionais (linhas finas):</b> trilha Winteregg, descida por Stechelberg e barco de Brienz — só se sobrar tempo. Traçado aproximado, para orientação.</p>
+  <div class="stops"><div class="stop"><span class="n">1</span><div><b>Interlaken Ost · 08h15</b><small>Trem para Grindelwald, ~35 min</small></div></div><div class="stop k"><span class="n">2</span><div><b>Grindelwald · 09h–10h</b><small>O vilarejo sob a face norte do Eiger</small></div></div><div class="stop k"><span class="n">3</span><div><b>Pfingstegg · 10h–11h30</b><small>Teleférico + Rodelbahn de 700 m</small></div></div><div class="stop"><span class="n">4</span><div><b>Zweilütschinen · 11h45</b><small>Troca de trem entre os dois vales</small></div></div><div class="stop k"><span class="n">5</span><div><b>Lauterbrunnen e Staubbach · 12h30</b><small>Cascata de 297 m + piquenique</small></div></div><div class="stop"><span class="n">6</span><div><b>Grütschalp · 13h45</b><small>Teleférico de 686 m, no pass</small></div></div><div class="stop k"><span class="n">7</span><div><b>Mürren · 14h30</b><small>Vilarejo sem carros a 1.638 m</small></div></div><div class="stop"><span class="n">8</span><div><b>Winteregg · 15h45</b><small>Trilha panorâmica — se sobrar tempo</small></div></div><div class="stop"><span class="n">9</span><div><b>Stechelberg · 16h30</b><small>O teleférico mais inclinado do mundo</small></div></div><div class="stop"><span class="n">10</span><div><b>Lago de Brienz · 17h30</b><small>Barco a Iseltwald — se sobrar tempo</small></div></div><div class="stop"><span class="n">11</span><div><b>Unterseen · 19h30</b><small>Höhematte e jantar no quarto</small></div></div></div>
+</div>
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b> — CHF 0<small>capriche: é o combustível do dia de montanha</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val"><b>Piquenique em frente à Staubbach</b><small>⭐ compre no Coop de Grindelwald <i>antes</i> de subir: lá em cima um sanduíche custa CHF 12–15</small></p></div><div class="meal"><p class="lbl">Lanche na montanha</p><p class="val">Chocolate e castanhas comprados em Zurique<small>café em Mürren, CHF 5–6</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">No quarto, em Unterseen<small>massa ou sopa + salada, CHF 10–14</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Älplermagronen</b> — massa, batata, queijo de montanha e cebola frita, com compota de maçã<small>⚠️ a receita tradicional leva <b>Speck (bacon)</b>: peça <i>ohne Speck</i>, versão vegetariana comum nos restaurantes</small></p></div><div class="meal"><p class="lbl">Piquenique</p><p class="val">Gramado em frente à cascata Staubbach<small>ou os bancos da estação de Mürren, com vista dos três picos</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 16–22/pessoa</b><small>CHF 32–44 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 34–46/pessoa</b><small>CHF 68–92 o casal</small></div>
+    <div>Economia possível<b>CHF ~75</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Compre a comida no <b>Coop de Grindelwald</b> antes do teleférico: em Pfingstegg e Mürren tudo custa o dobro.</span></div><div class="spend"><span class="tag">Vale gastar</span><span>Um café numa varanda de Mürren, CHF 5–6 — a vista é o produto, e não há como comprá-la mais barato.</span></div><div class="save"><span class="tag">Economize</span><span>Encha as garrafas nas fontes dos vilarejos: água potável de montanha, de graça.</span></div></div>
+</div>
+  <div class="cards two"><div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Plano B de chuva</h5><p>O <b>Rodelbahn fecha com chuva</b> — cheque <a class='ext' href='https://www.pfingstegg.ch/en' target='_blank' rel='noopener'>pfingstegg.ch</a> e o MeteoSwiss pela manhã. Alternativas, nesta ordem:</p><ul><li><b>First Cliff Walk</b> — a gôndola roda com nuvem e a passarela fica dramática na neblina (<a class='ext' href='https://www.jungfrau.ch/en-gb/grindelwaldfirst/' target='_blank' rel='noopener'>jungfrau.ch</a>; CHF 76 o casal com o pass)</li><li><b>Mais tempo em Lauterbrunnen</b> — a Staubbach fica ainda melhor com chuva</li><li><b>Mürren mesmo assim</b> — acesso gratuito, charme com névoa</li><li><b>Troque com sexta</b> se a previsão for ruim o dia todo</li></ul></div><div class="card warn"><h5><svg class="ico"><use href="#i-scissors"/></svg>Se atrasar, corte nesta ordem</h5><ol style='margin-left:18px;font-size:.93rem;color:var(--ink-2)'><li>O barco no Lago de Brienz</li><li>A trilha Mürren–Winteregg</li><li>A descida por Stechelberg — volte por Grütschalp</li><li>Só então encurte Mürren para 40 min</li></ol><p style='margin-top:8px'><b>Nunca corte</b> Grindelwald nem Lauterbrunnen.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-clock"/></svg>Realismo de horários</h5><p>Os tempos já incluem 10–15 min de folga em cada troca. Os dois pontos apertados: <b>Pfingstegg</b> (ônibus + subida + a descida do tobogã raramente cabem em menos de 1h10) e o <b>barco das 17h30</b>, que só funciona se pularem a trilha. Trens no vale a cada 30 min.</p></div><div class="card slow"><h5><svg class="ico"><use href="#i-leaf"/></svg>Momento de desacelerar</h5><p>Em <b>Mürren</b>, 30–40 minutos numa varanda com café, de frente para Eiger, Mönch e Jungfrau, sem olhar o relógio. Esta é a vista da viagem.</p></div></div>
+</article>
+<article class="day" id="d6" aria-labelledby="h-d6">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 6 · Sexta, 4 de setembro</p>
+    <h3 id="h-d6">Thun e Berna — o dia à prova de chuva</h3>
+    <p class="desc">Barco pelo Lago de Thun, um castelo do séc. XII e a capital medieval — barco, trens e museus todos no pass.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-train"/></svg>Barco + trem · no pass</span><span class="chip"><svg class="ico"><use href="#i-walk"/></svg>~9 km a pé</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 100 o casal</span><span class="chip"><svg class="ico"><use href="#i-info"/></svg>Funciona com chuva</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/1_thun_castle_view_2012.jpg?width=960" alt="O castelo de Thun, do século XII, no alto da cidade velha, com o lago ao fundo"><figcaption>Castelo de Thun sobre a cidade velha — museu grátis com o pass · Wikimedia Commons</figcaption></figure>
+  </div>
+  <h4 class="gal-title" id="gal-d6t"><svg class="ico"><use href="#i-star"/></svg>O que vocês verão hoje</h4>
+  <div class="gal" role="list" aria-labelledby="gal-d6t">
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff-Bluemlisalp-Thunersee.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff-Bluemlisalp-Thunersee.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Dampfschiff-Bluemlisalp-Thunersee.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vapor de rodas Blümlisalp navegando no Lago de Thun"></div><div class="tx"><h5>Barco pelo Lago de Thun</h5><p>~2h de travessia com castelos à beira d'água e o Niesen ao fundo — com sorte, no vapor histórico Blümlisalp.</p><div class="meta"><span class="when">09h00</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/4334_-_Thun_-_Obere_Hauptgasse.JPG?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/4334_-_Thun_-_Obere_Hauptgasse.JPG?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/4334_-_Thun_-_Obere_Hauptgasse.JPG?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A Obere Hauptgasse de Thun, com as calçadas elevadas sobre os telhados das lojas"></div><div class="tx"><h5>Obere Hauptgasse · Thun</h5><p>A rua onde se caminha <i>sobre</i> as lojas, pelas calçadas elevadas — única na Europa.</p><div class="meta"><span class="when">11h–13h</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Zytglogge_01.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Zytglogge_01.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Zytglogge_01.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A torre do relógio Zytglogge, em Berna, com seu mostrador astronômico dourado"></div><div class="tx"><h5>Zytglogge · Berna</h5><p>O relógio astronômico de 1530: chegue ~4 min antes da hora cheia para o teatrinho dos autômatos.</p><div class="meta"><span class="when">14h00</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/CH_Bern_Kramgasse.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/CH_Bern_Kramgasse.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/CH_Bern_Kramgasse.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A Kramgasse, em Berna, com suas arcadas contínuas e fontes renascentistas"></div><div class="tx"><h5>Arcadas da Kramgasse</h5><p>6 km de arcadas cobertas — a maior galeria coberta da Europa, perfeita mesmo com chuva.</p><div class="meta"><span class="when">14h–18h</span><span class="pill must">Must do</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bundeshaus_1128.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Bundeshaus_1128.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Bundeshaus_1128.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A cúpula do Bundeshaus, o parlamento suíço, em Berna"></div><div class="tx"><h5>Bundeshaus</h5><p>O parlamento suíço e o terraço atrás, com vista dos Alpes berneses em dia limpo.</p><div class="meta"><span class="when">~16h</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bear_park_in_Bern.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Bear_park_in_Bern.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Bear_park_in_Bern.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O Bärenpark de Berna, o recinto dos ursos na margem do rio Aare"></div><div class="tx"><h5>Bärenpark</h5><p>Os ursos-símbolo da cidade num parque na margem do Aare, na ponta leste da cidade velha.</p><div class="meta"><span class="when">~17h</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bern_Altstadt_von_Rosengarten_20211007.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Bern_Altstadt_von_Rosengarten_20211007.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Bern_Altstadt_von_Rosengarten_20211007.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="A cidade velha de Berna e a curva do rio Aare vistas do mirante do Rosengarten"></div><div class="tx"><h5>Mirante do Rosengarten</h5><p>A vista clássica da cidade velha inteira na curva do Aare — 10 min de subida a partir do Bärenpark.</p><div class="meta"><span class="when">~17h30</span><span class="pill rec">Recomendado</span><span class="pill free">Grátis</span></div></div></article>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">09h00</p><h4>Barco Interlaken West → Thun</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">No pass</span></div><p>~2h de travessia com os castelos de Oberhofen e Spiez à beira d'água, Niesen e Stockhorn ao fundo. Embarque a poucos minutos a pé do hotel. <a class='ext' href='https://www.bls-schiff.ch' target='_blank' rel='noopener'>bls-schiff.ch</a><br><b>Com pressa ou chuva:</b> o trem faz o mesmo trecho em 20 min.</p></li><li class="k"><p class="t">11h–13h</p><h4>Thun</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">Museu no pass</span></div><p>Castelo do séc. XII no alto (<b>museu grátis com o pass</b>) e a Obere Hauptgasse com suas <b>calçadas elevadas</b> sobre as lojas — única na Europa. O rio Aare turquesa corta a cidade. <a class='ext' href='https://www.thunersee.ch/en/' target='_blank' rel='noopener'>thunersee.ch</a></p></li><li><p class="t">13h30</p><h4>Thun → Berna</h4><div class="meta"><span class="pill free">No pass</span></div><p>~20 min, direto. Malas ficam no hotel — hoje é ida e volta.</p></li><li class="k"><p class="t">14h–18h</p><h4>Berna, cidade velha (UNESCO)</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">A pé · museus no pass</span></div><p>O relógio <b>Zytglogge</b> com o espetáculo dos autômatos a cada hora, <b>6 km de arcadas cobertas</b> — a maior galeria coberta da Europa —, as fontes renascentistas, a catedral com a torre mais alta da Suíça, o terraço do <b>Bundeshaus</b>, o <b>Bärenpark</b> (grátis) e o mirante do <b>Rosengarten</b> sobre a curva do Aare. <a class='ext' href='https://www.bern.com/en' target='_blank' rel='noopener'>bern.com</a></p></li><li><p class="t">18h30</p><h4>Berna → Interlaken Ost</h4><div class="meta"><span class="pill free">No pass</span></div><p>~55 min, direto. Há trens até tarde se quiserem esticar.</p></li><li class="k"><p class="t">20h00</p><h4>Jantar especial em Unterseen</h4><div class="meta"><span class="pill rec">Recomendado</span><span class="pill pay">~CHF 100 o casal</span><span class="pill resv">Reserve</span></div><p>O único jantar fora da viagem, na pracinha histórica ao lado do hotel. <b>Reserve na véspera</b> — as casas tradicionais têm poucas mesas em setembro.</p></li></ol>
+  <div class="mapwrap">
+  <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Sexta 4 set — Lago de Thun, castelo e Berna</p>
+  <div class="maplegend" data-legend="train,boat,walk"></div>
+  <div id="mapa4m" class="leaf" role="img" aria-label="Sexta 4 set — Lago de Thun, castelo e Berna"><div class="fallback">O mapa precisa de conexão. A lista de paradas abaixo funciona offline.</div></div>
+  <p class="mapnote">Traçado aproximado, para orientação. Com pressa ou chuva, o trem substitui o barco (20 min em vez de 2h) — mesma linha de partida.</p>
+  <div class="stops"><div class="stop"><span class="n">1</span><div><b>Unterseen · 09h</b><small>A pé até o píer de Interlaken West</small></div></div><div class="stop k"><span class="n">2</span><div><b>Barco pelo Lago de Thun</b><small>~2h, grátis com o pass</small></div></div><div class="stop k"><span class="n">3</span><div><b>Castelo de Thun · 11h</b><small>Museu grátis com o pass</small></div></div><div class="stop k"><span class="n">4</span><div><b>Obere Hauptgasse</b><small>As calçadas elevadas sobre as lojas</small></div></div><div class="stop"><span class="n">5</span><div><b>Thun → Berna · 13h30</b><small>Trem direto, ~20 min</small></div></div><div class="stop k"><span class="n">6</span><div><b>Zytglogge · 14h</b><small>O relógio astronômico medieval</small></div></div><div class="stop k"><span class="n">7</span><div><b>Bundeshaus e catedral</b><small>Arcadas e terraço com vista dos Alpes</small></div></div><div class="stop k"><span class="n">8</span><div><b>Bärenpark · ~17h</b><small>Os ursos na margem do Aare</small></div></div><div class="stop k"><span class="n">9</span><div><b>Rosengarten · ~17h30</b><small>Mirante sobre a curva do Aare</small></div></div><div class="stop"><span class="n">10</span><div><b>Berna, estação · 18h30</b><small>Trem a Interlaken Ost, ~55 min</small></div></div><div class="stop"><span class="n">11</span><div><b>Unterseen · 20h</b><small>Jantar na pracinha histórica</small></div></div></div>
+</div>
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b> — CHF 0<small>com calma: o barco só sai às 9h</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val"><b>Padaria em Thun + piquenique na ilha do Aare</b><small>quiche, sanduíche e fruta, CHF 8–14 — bem melhor que os cafés turísticos do castelo</small></p></div><div class="meal"><p class="lbl">Lanche</p><p class="val">Café numa arcada de Berna<small>CHF 5–8</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val"><b>Restaurante em Unterseen — o splurge da viagem</b><small>~CHF 45–50 por pessoa</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Rösti bernês</b> com queijo e ovo, ou <b>raclette</b><small>⚠️ o <b>fondue tradicional leva vinho branco e kirsch</b> — se preferem sem álcool, peça <b>raclette</b> (só queijo derretido) ou rösti com queijo. O rösti costuma vir com bacon: peça <i>ohne Speck</i></small></p></div><div class="meal"><p class="lbl">Sobremesa regional</p><p class="val"><b>Meringue com creme duplo de Gruyère</b><small>clássico da região, ~CHF 9 — divida uma porção, é enorme</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 24–30/pessoa</b><small>CHF 48–60 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 56–70/pessoa</b><small>CHF 112–140 o casal</small></div>
+    <div>Economia possível<b>CHF ~45</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="spend"><span class="tag">Vale gastar</span><span>Este é o jantar para gastar: um prato regional bem-feito, uma vez na viagem, perto do hotel e sem pressa.</span></div><div class="save"><span class="tag">Economize</span><span>Almoço de padaria em Thun em vez de restaurante no castelo — mesma vista do Aare, um terço do preço.</span></div><div class="save"><span class="tag">Economize</span><span>Dividam a meringue e o rösti: as porções suíças são grandes e o couvert não existe.</span></div></div>
+</div>
+  <div class="cards two"><div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Plano B de chuva</h5><p>Este é o dia à prova de chuva do roteiro — por isso ele existe. Troquem o barco pelo trem e, em Berna, as <b>6 km de arcadas cobertas</b> deixam a cidade caminhável sob abrigo. O <a class='ext' href='https://www.bhm.ch/en/' target='_blank' rel='noopener'>Museu Histórico + Einstein</a> e o museu do castelo de Thun são grátis com o pass.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-clock"/></svg>Realismo de horários</h5><p>O barco leva <b>2h</b>; o trem, 20 min — se acordarem tarde, troquem e ganhem 1h40 em Berna. A capital pede no mínimo 3h30 a pé. O trem das 18h30 é o confortável.</p></div><div class="card slow"><h5><svg class="ico"><use href="#i-leaf"/></svg>Momento de desacelerar</h5><p>Sente-se à beira do <b>rio Aare</b>, no Marzili ou sob a ponte Kirchenfeld: água verde-glacial, bernenses boiando na correnteza e a cidade velha lá em cima. Reserve 45 minutos.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Onde comprar</h5><p><b>Mercado da Bundesplatz</b> em Berna (terças e sábados de manhã, <i>confirme na semana</i>): Emmentaler e Gruyère de alpe direto do produtor — perfeito para os piqueniques. As <b>fontes renascentistas</b> são potáveis, inclusive as ornamentadas do séc. XVI.</p></div></div>
+</article>
+<article class="day" id="d7" aria-labelledby="h-d7">
+  <div class="day-head">
+    <p class="day-num"><svg class="ico"><use href="#i-star"/></svg>Dia 7 · Sábado, 5 de setembro</p>
+    <h3 id="h-d7">Vale de Goms, Andermatt e o voo</h3>
+    <p class="desc">A metade oeste da rota do Glacier Express como despedida — cinco horas de trem cênico e ainda quatro de folga no aeroporto.</p>
+    <div class="chips"><span class="chip"><svg class="ico"><use href="#i-train"/></svg>~5h20 de trem · no pass</span><span class="chip cost"><svg class="ico"><use href="#i-cash"/></svg>~CHF 35 o casal</span><span class="chip"><svg class="ico"><use href="#i-plane"/></svg>ZRH → MAD 20h25</span></div>
+    <figure><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/KircheFiesch.JPG?width=960" alt="A igreja de Fiesch entre casas de madeira, no vale de Goms"><figcaption>Fiesch, no vale de Goms — a despedida pelos Alpes · Wikimedia Commons</figcaption></figure>
+  </div>
+  <h4 class="gal-title" id="gal-d7t"><svg class="ico"><use href="#i-star"/></svg>O que vocês verão hoje</h4>
+  <div class="gal" role="list" aria-labelledby="gal-d7t">
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bahnhof_Brig-IMG_9427.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Bahnhof_Brig-IMG_9427.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Bahnhof_Brig-IMG_9427.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="Trens vermelhos da Matterhorn Gotthard Bahn na praça da estação de Brig"></div><div class="tx"><h5>Matterhorn Gotthard Bahn · Brig</h5><p>Os trens vermelhos partem da praça da estação de Brig — é neles que vocês seguem a rota do Glacier Express.</p><div class="meta"><span class="when">10h00</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ulrichen_Goms.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Ulrichen_Goms.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Ulrichen_Goms.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vilarejo de Ulrichen, no vale de Goms, com casas de madeira escurecida pelo sol"></div><div class="tx"><h5>Vilarejos de madeira do Goms</h5><p>Casas de lariço escurecido como as de Ulrichen desfilam pela janela — Fiesch e Münster são as paradas possíveis.</p><div class="meta"><span class="when">10h–11h30</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Andermatt.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Andermatt.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Andermatt.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O vilarejo de Andermatt, a 1.437 m, cercado de montanhas"></div><div class="tx"><h5>Andermatt</h5><p>Rua única de casas de pedra e madeira no cruzamento de três passos alpinos — a parada de almoço.</p><div class="meta"><span class="when">11h45–13h</span><span class="pill must">Must do</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Teufelsbruecken_Schoellenen_01_09.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Teufelsbruecken_Schoellenen_01_09.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Teufelsbruecken_Schoellenen_01_09.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="As pontes do Diabo sobre a garganta do rio Reuss, no desfiladeiro de Schöllenen"></div><div class="tx"><h5>Schöllenen e a Ponte do Diabo</h5><p>O trem de cremalheira desce esta garganta vertical do Reuss — 15 minutos que o próprio Glacier Express não percorre.</p><div class="meta"><span class="when">13h15</span><span class="pill must">Must do</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Brunnen_SZ_Vierwaldst%C3%A4ttersee.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Brunnen_SZ_Vierwaldst%C3%A4ttersee.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Brunnen_SZ_Vierwaldst%C3%A4ttersee.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="O Lago de Lucerna visto de Brunnen, com montanhas caindo na água"></div><div class="tx"><h5>Lago de Lucerna em Flüelen e Brunnen</h5><p>O trem margeia o braço mais dramático do lago na descida do Gotthard — sente à esquerda.</p><div class="meta"><span class="when">~14h30</span><span class="pill rec">Da janela</span><span class="pill free">No pass</span></div></div></article>
+    <article class="gcard" role="listitem"><div class="im"><img loading="lazy" width="960" height="640" src="https://commons.wikimedia.org/wiki/Special:FilePath/Stockalper_Palace.jpg?width=960" srcset="https://commons.wikimedia.org/wiki/Special:FilePath/Stockalper_Palace.jpg?width=640 640w, https://commons.wikimedia.org/wiki/Special:FilePath/Stockalper_Palace.jpg?width=960 960w" sizes="(min-width:900px) 300px, (min-width:640px) 45vw, 78vw" alt="As torres de cúpulas douradas do palácio Stockalper, em Brig"></div><div class="tx"><h5>Palácio Stockalper · Brig</h5><p>As três torres de cúpula dourada ficam a 5 min da estação — só se a conexão der folga.</p><div class="meta"><span class="when">~09h40</span><span class="pill opt">Opcional</span><span class="pill free">Pátio grátis</span></div></div></article>
+  </div>
+  <ol class="tl"><li class="k"><p class="t">08h30</p><h4>Check-out · Interlaken Ost → Brig</h4><div class="meta"><span class="pill free">No pass</span></div><p>~1h10 pelo túnel de base do Lötschberg, saindo dos Alpes Berneses para o vale do Ródano. Malas conosco o dia todo.</p></li><li class="k"><p class="t">10h00</p><h4>Brig → vale de Goms → Furka</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">No pass</span></div><p>~1h45 no trecho oeste da rota do <a class='ext' href='https://www.glacierexpress.ch/en/' target='_blank' rel='noopener'>Glacier Express</a> (trilhos da <a class='ext' href='https://www.rhb.ch/en/' target='_blank' rel='noopener'>RhB</a> e da MGBahn), em trem regular: o Ródano ainda jovem, prados altos e vilarejos de madeira escurecida — pare em <a class='ext' href='https://www.obergoms.ch/en' target='_blank' rel='noopener'>Fiesch ou Münster</a> se o horário permitir. <a class='ext' href='https://www.matterhorngotthardbahn.ch/en' target='_blank' rel='noopener'>MGBahn</a></p></li><li class="k"><p class="t">11h45–13h</p><h4>Andermatt</h4><div class="meta"><span class="pill must">Must do</span></div><p>Almoço e passeio no vilarejo a 1.437 m, no cruzamento dos passos Furka, Oberalp e Gotthard. Rua única de casas de pedra e madeira. <a class='ext' href='https://www.andermatt.ch/en' target='_blank' rel='noopener'>andermatt.ch</a></p></li><li class="k"><p class="t">13h15</p><h4>Desfiladeiro de Schöllenen</h4><div class="meta"><span class="pill must">Must do</span><span class="pill free">No pass</span></div><p>15 minutos espetaculares: o trem de cremalheira desce a garganta vertical do Reuss, passando pela <b>Ponte do Diabo</b> — trecho que o próprio Glacier Express não percorre.</p></li><li><p class="t">13h45</p><h4>Göschenen → Aeroporto de Zurique</h4><div class="meta"><span class="pill free">No pass</span></div><p>~2h15 descendo o vale do Reuss e margeando o <b>Lago de Lucerna</b> em Flüelen e Brunnen. No aeroporto por volta das <b>16h</b> — quatro horas de folga.</p></li><li class="k"><p class="t">20h25</p><h4>Voo ZRH → MAD</h4><div class="meta"><span class="pill must">Must do</span></div><p>Em Madri: chegada no T4, saída pelo satélite T4S (trem interno + passaporte) — vá direto, sem parada no lounge.</p></li></ol>
+  <div class="mapwrap">
+  <p class="cap"><svg class="ico"><use href="#i-map"/></svg>Sábado 5 set — Goms, Andermatt e o aeroporto</p>
+  <div class="maplegend" data-legend="train,scenic"></div>
+  <div id="mapa5m" class="leaf" role="img" aria-label="Sábado 5 set — Goms, Andermatt e o aeroporto"><div class="fallback">O mapa precisa de conexão. A lista de paradas abaixo funciona offline.</div></div>
+  <p class="mapnote">Traçado aproximado, para orientação — não segue o alinhamento exato dos trilhos. O trecho Brig → Andermatt usa a rota do Glacier Express em trem regular da MGB.</p>
+  <div class="stops"><div class="stop"><span class="n">1</span><div><b>Unterseen · 08h30</b><small>Check-out; trem em Interlaken Ost</small></div></div><div class="stop"><span class="n">2</span><div><b>Brig · ~09h40</b><small>Túnel de base do Lötschberg</small></div></div><div class="stop k"><span class="n">3</span><div><b>Vale de Goms · 10h–11h30</b><small>O trecho oeste do Glacier Express</small></div></div><div class="stop k"><span class="n">4</span><div><b>Andermatt · 11h45–13h</b><small>Almoço no cruzamento dos passos</small></div></div><div class="stop k"><span class="n">5</span><div><b>Schöllenen · 13h15</b><small>Garganta do Reuss e a Ponte do Diabo</small></div></div><div class="stop"><span class="n">6</span><div><b>Lago de Lucerna · ~14h30</b><small>Flüelen e Brunnen à beira d'água</small></div></div><div class="stop"><span class="n">7</span><div><b>Aeroporto de Zurique · ~16h</b><small>4h de folga até o voo</small></div></div><div class="stop"><span class="n">8</span><div><b>Voo ZRH → MAD · 20h25</b><small>Boa viagem</small></div></div></div>
+</div>
+  <div class="card food" style="margin-top:var(--s5)">
+  <h5><svg class="ico"><use href="#i-fork"/></svg>Plano de comida do dia</h5>
+  <div class="meals"><div class="meal"><p class="lbl">Café da manhã</p><p class="val"><b>Incluído no hotel</b>, antes do check-out — CHF 0<small>e terminem o que sobrou da despensa para o trem</small></p></div><div class="meal"><p class="lbl">Almoço</p><p class="val"><b>Piquenique comprado em Interlaken</b><small>⭐ monte hoje cedo no Coop da Interlaken Ost: em Andermatt um prato simples custa CHF 25–30</small></p></div><div class="meal"><p class="lbl">Alternativa</p><p class="val">Almoço quente em Andermatt<small>se preferirem sentar: CHF 22–30 por pessoa</small></p></div><div class="meal"><p class="lbl">Jantar</p><p class="val">No aeroporto, antes do voo<small>CHF 15–22 — ou leve pão e queijo do vale e economize tudo</small></p></div><div class="meal"><p class="lbl">Especialidade local</p><p class="val"><b>Raclette</b> no Valais, terra do prato<small>✔️ só queijo derretido com batata e picles — sem álcool e sem carne. ⚠️ o <i>Walliser Teller</i> mistura carne seca de vaca com <b>presunto e toucinho</b>: peça só <i>Trockenfleisch vom Rind</i></small></p></div><div class="meal"><p class="lbl">Piquenique</p><p class="val">Bancos da rua principal de Andermatt<small>ou a plataforma de Oberwald, com o vale inteiro à frente</small></p></div></div>
+  <div class="money">
+    <div>Plano econômico<b>CHF 14–20/pessoa</b><small>CHF 28–40 o casal · café já no hotel</small></div>
+    <div>Plano confortável<b>CHF 36–48/pessoa</b><small>CHF 72–96 o casal</small></div>
+    <div>Economia possível<b>CHF ~50</b><small>vs. comer fora</small></div>
+  </div>
+  <div class="ss"><div class="save"><span class="tag">Economize</span><span>Monte o piquenique em Interlaken antes de sair: Andermatt e o aeroporto são os dois lugares mais caros do dia.</span></div><div class="spend"><span class="tag">Vale gastar</span><span>Se o dia estiver bonito, uma raclette em Andermatt é a última refeição suíça de verdade — vale os CHF 25.</span></div></div>
+</div>
+  <div class="cards two"><div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Plano B de chuva</h5><p>Com névoa fechada o vale de Goms vira 5h20 de janela cinzenta. Alternativa: <b>trem direto Interlaken → Berna → aeroporto (~2h05)</b> e use as horas extras num último café nas arcadas de Berna. Os dois caminhos estão no pass e nenhum precisa de reserva.</p></div><div class="card warn"><h5><svg class="ico"><use href="#i-clock"/></svg>Margem para o voo</h5><p>Linhas de montanha têm ~1 trem por hora. Confirme as conexões em <a class='ext' href='https://www.sbb.ch/en' target='_blank' rel='noopener'>sbb.ch</a> na véspera e anote o horário seguinte de cada troca. A folga de 4h no aeroporto absorve um trem perdido.</p></div><div class="card slow"><h5><svg class="ico"><use href="#i-leaf"/></svg>Momento de desacelerar</h5><p>Em <b>Andermatt</b>, depois do almoço, sente-se num banco da rua principal com o sol de montanha no rosto. A hora e quinze ali é de propósito — é o fecho da viagem.</p></div><div class="card tip"><h5><svg class="ico"><use href="#i-info"/></svg>Bagagem e compras</h5><p>Queijo e carne seca <b>vão na mala despachada</b> ao sair da Suíça. Carrinho de bagagem no aeroporto: CHF 2 (retornáveis). Última chance de encher as garrafas nas fontes de Andermatt.</p></div></div>
+</article></div></section>
+<section class="sec" id="comida" aria-labelledby="h-comida">
+  <div class="wrap">
+    <div class="sec-h"><h2 id="h-comida">Comida &amp; orçamento</h2><p>Três estratégias para os 7 dias, casal — só comida.</p></div>
+    <table class="tbl">
+      <caption>Comparação de estratégias alimentares · 7 dias · 2 pessoas</caption>
+      <thead><tr><th scope="col">Estratégia</th><th scope="col">Como funciona</th><th scope="col">Total CHF</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Estratégia"><b>Restaurantes</b><br><small>quase todas as refeições</small></td><td data-l="Como">Café no hotel, almoço e jantar fora todos os dias</td><td data-l="Total">900–1.100</td></tr>
+        <tr><td data-l="Estratégia"><b>Equilibrada</b><br><small>o plano deste roteiro</small></td><td data-l="Como">Padaria e mercado no dia a dia, piqueniques com vista, 1 jantar de restaurante e alguns cafés de montanha · café da manhã incluído nos dois hotéis</td><td data-l="Total">285–360</td></tr>
+        <tr><td data-l="Estratégia"><b>Muito econômica</b></td><td data-l="Como">Só mercado e padaria, zero restaurante, café dos hotéis todas as manhãs</td><td data-l="Total">190–240</td></tr>
+        <tr class="tot"><td data-l="Escolhido" colspan="2">Plano adotado — equilibrado, com o jantar de 4 set como splurge</td><td data-l="Total">~285</td></tr>
+      </tbody>
+    </table>
+    <div class="cards two">
+      <div class="card food"><h5><svg class="ico"><use href="#i-fork"/></svg>Preferências alimentares — o que evitar</h5>
+        <p><b>Sem porco, sem frutos do mar, sem álcool.</b> Pratos suíços que costumam esconder um desses:</p>
+        <ul>
+          <li><b>Fondue de queijo</b> — leva vinho branco e kirsch. Substituto direto: <b>raclette</b>.</li>
+          <li><b>Älplermagronen</b> — normalmente com Speck. Peça <i>ohne Speck</i>.</li>
+          <li><b>Rösti</b> — muitas versões com bacon. Peça a de <b>queijo e ovo</b>.</li>
+          <li><b>Walliser Teller / Bündnerfleisch sortido</b> — mistura presunto e toucinho. Peça só <i>Trockenfleisch vom Rind</i> (carne de vaca).</li>
+          <li><b>Zürcher Geschnetzeltes</b> — molho com vinho branco. Pergunte <i>ohne Wein</i>.</li>
+          <li><b>Cordon bleu</b> — quase sempre com presunto. Peça a versão de frango e queijo, se houver.</li>
+        </ul>
+        <p class="note">Seguros: raclette, rösti de queijo, massa, sopas, quiches vegetarianas, frango grelhado, produtos de padaria, Birchermüesli, meringue com creme.</p></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-cart"/></svg>Onde comprar, por preço</h5>
+        <ul>
+          <li><b><a class="ext" href="https://www.aldi-suisse.ch" target="_blank" rel="noopener">Aldi</a> e Lidl</b> — os mais baratos, ~30–40% abaixo dos grandes. Valem a compra grande.</li>
+          <li><b><a class="ext" href="https://www.denner.ch" target="_blank" rel="noopener">Denner</a></b> — barato, lojas pequenas nos vilarejos.</li>
+          <li><b><a class="ext" href="https://www.migros.ch" target="_blank" rel="noopener">Migros</a> e Coop</b> — onipresentes; procure <b>M-Budget</b> e <b>Prix Garantie</b>.</li>
+          <li><b>Coop da estação Interlaken Ost</b> — a exceção que abre domingo e até tarde.</li>
+          <li><b>ShopVille</b>, Zürich HB — salvação do domingo de chegada.</li>
+          <li>Horários: seg–sex até ~19h, sáb até ~17h, <b>domingo fechado</b> fora das estações.</li>
+        </ul></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-cash"/></svg>Custos que quase todos esquecem</h5>
+        <p>Fora dos números acima; some ~CHF 40–70 na semana.</p>
+        <ul><li>Lockers de estação: CHF 6–9 por uso (Lucerna, possivelmente Berna)</li>
+        <li>Banheiros públicos: CHF 1–2 nas estações; grátis em museus e restaurantes</li>
+        <li>Despacho de bagagem entre estações pelo SBB: ~CHF 12 por peça</li>
+        <li>Aluguel de roupa de montanha: CHF 20–30 — desnecessário com a jaqueta e as luvas da lista</li>
+        <li>Carrinho de bagagem no aeroporto: CHF 2 (retornáveis)</li></ul></div>
+      <div class="card food"><h5><svg class="ico"><use href="#i-star"/></svg>Onde vale gastar, na viagem inteira</h5>
+        <ul><li><b>Um jantar regional</b> (4 set, Unterseen) — a experiência de mesa da viagem</li>
+        <li><b>Café numa varanda de Mürren</b> — CHF 5–6 pela melhor vista do roteiro</li>
+        <li><b>Café e bolo à beira do Reuss</b>, em Lucerna</li>
+        <li><b>Luxemburgerli</b> da Sprüngli, em Zurique — CHF 8 bem gastos</li></ul>
+        <p class="note">Fora isso: mercado, padaria e piquenique. A economia é de ~CHF 550 na semana comparada a comer fora sempre.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pratico" aria-labelledby="h-pratico">
+  <div class="wrap">
+    <div class="sec-h"><h2 id="h-pratico">Prático</h2><p>Trens passo a passo, orçamento, bagagem e links.</p></div>
+    <div class="cards two" style="margin-top:0;margin-bottom:var(--s6)">
+      <div class="card tip"><h5><svg class="ico"><use href="#i-train"/></svg>Trens — como funciona (vale para a viagem inteira)</h5>
+        <ul>
+          <li><b>Nenhum trem do roteiro precisa de reserva.</b> Todos são serviços regulares de linha, cobertos pelo Swiss Travel Pass (2–5 set). Cheguem ~10 min antes e sentem em qualquer lugar livre.</li>
+          <li><b>Pass no celular:</b> ativem os 4 dias para 2–5 set; o cobrador passa a bordo e escaneia o QR. Não há catracas.</li>
+          <li><b>SBB Mobile</b> mostra plataforma, atrasos e a composição do trem em tempo real — as plataformas mudam, confie no painel da estação, não no costume.</li>
+          <li><b>Perdeu o trem?</b> Em todas as linhas do roteiro há outro em 30–60 min. Nada quebra.</li>
+          <li><b>Zurique, 30 ago–1 set (antes do pass):</b> o hotel fica na parada <b>Glattpark</b> — tram direto até a Zürich HB, ~20 min. Comprem o bilhete ZVV no app SBB/ZVV antes de embarcar (~CHF 15–20/dia o casal indo e voltando; o app mostra o preço exato das zonas).</li>
+          <li><b>Exceção:</b> Munique → Zurique (30 ago) é bilhete próprio, fora do pass — esse tem assentos marcados; confiram o vagão no bilhete.</li>
+        </ul></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-train"/></svg>Qua 2 set — Zurique → Lucerna → Interlaken</h5>
+        <ul>
+          <li><b>Zurique HB → Lucerna:</b> trens diretos ao menos 2×/hora, 45–50 min. Painel: destino <i>Luzern</i>.</li>
+          <li><b>Em Lucerna:</b> malas nos lockers (siga as placas <i>Schliessfächer</i>, CHF 6–9).</li>
+          <li><b>Lucerna → Interlaken Ost (16h):</b> o Luzern–Interlaken Express é o <b>trem regular</b> da Zentralbahn, 1×/hora — em Lucerna ele parte das plataformas baixas da Zentralbahn, no fundo da estação; confirme no painel. Sem reserva: escolham lugar livre.</li>
+          <li><b>Onde sentar:</b> direita até o passo do Brünig (lagos de Sarnen e Lungern); depois do passo, o Lago de Brienz aparece à esquerda.</li>
+          <li><b>Interlaken Ost → hotel:</b> qualquer trem regional até Interlaken West (1 parada, ~3 min, no pass) ou 20–25 min a pé.</li>
+        </ul></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-train"/></svg>Qui 3 set — o circuito da montanha</h5>
+        <ul>
+          <li><b>Interlaken Ost → Grindelwald:</b> trem da BOB a cada 30 min, ~35 min. <b>Atenção: o trem se divide em Zweilütschinen</b> — uma metade vai a Grindelwald, a outra a Lauterbrunnen. Confiram o letreiro <i>do vagão</i>, não só o do painel.</li>
+          <li><b>Grindelwald → Lauterbrunnen:</b> trem de volta até Zweilütschinen e troca (ou a outra metade do mesmo trem), ~40 min no total.</li>
+          <li><b>Lauterbrunnen → Mürren:</b> o teleférico para Grütschalp sai em frente à estação, sincronizado com o trenzinho BLM que segue na beira do precipício até Mürren. Tudo no pass.</li>
+          <li><b>Volta padrão:</b> o mesmo caminho ao contrário. Descida opcional por Stechelberg: teleférico da Schilthornbahn (no pass) + ônibus PostBus até Lauterbrunnen (no pass).</li>
+          <li><b>Único pagamento do dia:</b> teleférico de Pfingstegg (50% com o pass) + tobogã, na bilheteria local.</li>
+        </ul></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-train"/></svg>Sex 4 set e sáb 5 set</h5>
+        <ul>
+          <li><b>Sex, barco:</b> o píer fica colado na estação Interlaken West; confirmem o horário da manhã em bls-schiff.ch na véspera e cheguem 10 min antes. Com pressa/chuva: trem Interlaken West → Thun, ~20 min, várias vezes por hora.</li>
+          <li><b>Sex, Thun → Berna:</b> diretos várias vezes por hora, ~20 min. Volta Berna → Interlaken Ost: direto ~55 min, de hora em hora, até tarde.</li>
+          <li><b>Sáb, Interlaken Ost → Brig:</b> ~1h10 via túnel do Lötschberg (direto de hora em hora; senão, troca simples em Spiez, mesma plataforma em geral).</li>
+          <li><b>Sáb, em Brig:</b> a MGB (trens vermelhos) parte <b>da praça em frente à estação</b>, não das plataformas da SBB. Painel: direção <i>Andermatt/Göschenen</i>. ~1×/hora, no pass.</li>
+          <li><b>Sáb, Andermatt → Göschenen:</b> trenzinho de cremalheira de ~15 min pela garganta de Schöllenen, conectado aos trens principais.</li>
+          <li><b>Sáb, Göschenen → aeroporto:</b> ~1 trem/hora descendo o vale do Reuss; normalmente uma troca no caminho (o app indica onde — costuma ser Arth-Goldau ou Zurique HB). A folga de 4h absorve qualquer atraso.</li>
+        </ul></div>
+    </div>
+    <table class="tbl">
+      <caption>Orçamento do casal — sem hotel, voos e o trem de Munique</caption>
+      <thead><tr><th scope="col">Item</th><th scope="col">Detalhe</th><th scope="col">CHF</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Item"><b>Passes</b></td><td data-l="Detalhe">2× Swiss Travel Pass 4 dias (2–5 set)</td><td data-l="CHF">618</td></tr>
+        <tr><td data-l="Item">Teleféricos e trens de montanha</td><td data-l="Detalhe">Mürren pelos dois lados, barcos e museus: tudo no pass</td><td data-l="CHF">0</td></tr>
+        <tr><td data-l="Item">Pfingstegg</td><td data-l="Detalhe">Teleférico CHF 32 (50% pass) + tobogã ~CHF 16 (uma descida cada)</td><td data-l="CHF">~48</td></tr>
+        <tr><td data-l="Item">Comida — mercado</td><td data-l="Detalhe">7 dias de piqueniques e jantares no quarto · café da manhã incluído nos dois hotéis (31 ago–5 set)</td><td data-l="CHF">~185</td></tr>
+        <tr><td data-l="Item">Jantar de restaurante</td><td data-l="Detalhe">Unterseen, 4 set</td><td data-l="CHF">~100</td></tr>
+        <tr><td data-l="Item">Extras</td><td data-l="Detalhe">Trams ZVV em Zurique (3 dias, sem pass, hotel ⇄ centro), lockers, lanche no aeroporto</td><td data-l="CHF">~110</td></tr>
+        <tr class="tot"><td data-l="Total" colspan="2">Total estimado</td><td data-l="Total">~1.060</td></tr>
+      </tbody>
+    </table>
+    <table class="tbl" style="margin-top:var(--s6)">
+      <caption>Deslocamentos principais — todos cobertos pelo pass, salvo indicação</caption>
+      <thead><tr><th scope="col">Data</th><th scope="col">Trecho</th><th scope="col">Duração</th></tr></thead>
+      <tbody>
+        <tr><td data-l="Data">30 ago</td><td data-l="Trecho">Munique → Zurique <small>(bilhete próprio)</small></td><td data-l="Duração">~3h30</td></tr>
+        <tr><td data-l="Data">2 set</td><td data-l="Trecho">Zurique → Lucerna</td><td data-l="Duração">45 min</td></tr>
+        <tr><td data-l="Data">2 set</td><td data-l="Trecho">Lucerna → Interlaken <small>(panorâmico do Brünig)</small></td><td data-l="Duração">~1h50</td></tr>
+        <tr><td data-l="Data">3 set</td><td data-l="Trecho">Interlaken ⇄ Grindelwald ⇄ Lauterbrunnen ⇄ Mürren</td><td data-l="Duração">circuito ~10h</td></tr>
+        <tr><td data-l="Data">4 set</td><td data-l="Trecho">Interlaken → Thun (barco) → Berna → Interlaken</td><td data-l="Duração">2h + 20min + 55min</td></tr>
+        <tr><td data-l="Data">5 set</td><td data-l="Trecho">Interlaken → Brig → Goms → Andermatt</td><td data-l="Duração">~3h</td></tr>
+        <tr><td data-l="Data">5 set</td><td data-l="Trecho">Andermatt → Göschenen → Aeroporto ZRH</td><td data-l="Duração">~2h30</td></tr>
+      </tbody>
+    </table>
+    <div class="cards two">
+      <div class="card tip"><h5><svg class="ico"><use href="#i-star"/></svg>Reservas e confirmações</h5>
+        <ul><li><b>Trem Luzern–Interlaken (2 set, 16h)</b> — sem reserva: é o trem regular, de hora em hora, no pass. Reservar assento (~CHF 8) é opcional e desnecessário em setembro</li>
+        <li><b>Jantar em Unterseen (4 set)</b> — reserve com um dia de antecedência</li>
+        <li><b>Hotel Zurique:</b> Radisson Hotel &amp; Suites, Thurgauerstrasse 116, Glattpark/Opfikon — 30 ago a 2 set, <b>café da manhã incluído</b></li>
+        <li><b>Hotel Interlaken:</b> Central Continental, Bahnhofstrasse 43, 3800 Unterseen — 2 a 5 de setembro, <b>café da manhã incluído</b></li>
+        <li><b>Voo:</b> ZRH → MAD, 5 de setembro às 20h25</li>
+        <li>Tobogã de Pfingstegg e barcos: <b>sem reserva</b>, compra no local</li></ul>
+        <p class="note">Horários de trem, barco e teleférico mudam por temporada — confirme em <a class="ext" href="https://www.sbb.ch/en" target="_blank" rel="noopener">sbb.ch</a> na véspera de cada dia.</p></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-info"/></svg>Bagagem — o que levar</h5>
+        <ul><li>Adaptador <b>tipo J</b> (o Schuko alemão não entra)</li>
+        <li>Power bank — mapa, fotos e SBB consomem a bateria antes das 18h</li>
+        <li>Óculos de sol e protetor: a luz a 1.600 m é muito mais forte</li>
+        <li>Jaqueta de chuva leve (não guarda-chuva: venta em teleférico)</li>
+        <li>Luvas finas — manhãs de setembro em Mürren e Andermatt ficam perto de 5 °C</li>
+        <li>Garrafa reutilizável para as fontes</li>
+        <li>Google Maps offline da região de Interlaken</li>
+        <li>Horários do SBB salvos offline</li>
+        <li>eSIM cobrindo <b>Alemanha e Suíça</b> — a Suíça fica fora do roaming da UE</li></ul></div>
+      <div class="card tip"><h5><svg class="ico"><use href="#i-map"/></svg>Links úteis</h5>
+        <ul><li><a class="ext" href="https://www.sbb.ch/en" target="_blank" rel="noopener">sbb.ch</a> — horários de trem, ônibus e barco</li>
+        <li><a class="ext" href="https://www.meteoswiss.admin.ch/" target="_blank" rel="noopener">MeteoSwiss</a> · <a class="ext" href="https://www.jungfrau.ch/en-gb/live/webcams/" target="_blank" rel="noopener">webcams ao vivo</a></li>
+        <li><a class="ext" href="https://www.myswissalps.com/details/swiss-travel-pass-validity/" target="_blank" rel="noopener">Cobertura do Swiss Travel Pass</a> · <a class="ext" href="https://www.myswissalps.com/travel-ticket/swiss-travel-pass/" target="_blank" rel="noopener">como funciona o pass</a></li>
+        <li><a class="ext" href="https://www.grindelwald.swiss/en/" target="_blank" rel="noopener">Grindelwald</a> · <a class="ext" href="https://www.lauterbrunnen.swiss/en/" target="_blank" rel="noopener">Lauterbrunnen</a> · <a class="ext" href="https://www.jungfrau.ch/en-gb/muerren/" target="_blank" rel="noopener">Mürren</a> · <a class="ext" href="https://www.interlaken.swiss/en/" target="_blank" rel="noopener">Interlaken</a></li>
+        <li><a class="ext" href="https://www.pfingstegg.ch/en/discover/toboggan" target="_blank" rel="noopener">Pfingstegg — tobogã</a> · <a class="ext" href="https://www.jungfrau.ch/en-gb/grindelwaldfirst/" target="_blank" rel="noopener">First Cliff Walk</a> · <a class="ext" href="https://www.jungfrau.ch/en-gb/harder-kulm/" target="_blank" rel="noopener">Harder Kulm</a> (opcional, CHF 44) · <a class="ext" href="https://www.maennlichen.ch/en" target="_blank" rel="noopener">Männlichen</a> · <a class="ext" href="https://www.schilthorn.ch/en" target="_blank" rel="noopener">Schilthorn</a></li>
+        <li><a class="ext" href="https://www.bls-schiff.ch" target="_blank" rel="noopener">Barcos dos lagos</a> · <a class="ext" href="https://www.zentralbahn.ch/en/luzern-interlaken-express" target="_blank" rel="noopener">Luzern–Interlaken Express</a></li>
+        <li><a class="ext" href="https://www.luzern.com/en" target="_blank" rel="noopener">Lucerna</a> · <a class="ext" href="https://www.bern.com/en" target="_blank" rel="noopener">Berna</a> · <a class="ext" href="https://www.thunersee.ch/en/" target="_blank" rel="noopener">Thun</a> · <a class="ext" href="https://www.zuerich.com/en" target="_blank" rel="noopener">Zurique</a></li></ul></div>
+      <div class="card wx"><h5><svg class="ico"><use href="#i-cloud"/></svg>Alternativas de mau tempo, resumidas</h5>
+        <ul><li><b>Montanha fechada:</b> troque quinta por sexta — Thun e Berna funcionam com chuva</li>
+        <li><b>Tobogã fechado:</b> First Cliff Walk (CHF 76 o casal) ou mais tempo em Lauterbrunnen</li>
+        <li><b>Chuva em Lucerna:</b> Museu dos Transportes, 50% com o pass</li>
+        <li><b>Chuva em Zurique:</b> arcadas da Altstadt e Museu Nacional</li>
+        <li><b>Névoa no último dia:</b> trem direto Interlaken → Berna → aeroporto (~2h05)</li></ul>
+        <p class="note">Nada disso exige reserva nem gasto adicional além do indicado.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site"><div class="wrap">
+  <p><b>Suíça 2026 · Guia de viagem v2.1 — contexto visual e mapas</b> — Tiago &amp; Miriam · 30 de agosto a 5 de setembro de 2026.</p>
+  <p class="note">Horários, preços e funcionamento de teleféricos mudam por temporada: confirme em sbb.ch e nos sites oficiais pouco antes de viajar. Fotos: Wikimedia Commons (licenças Creative Commons; carregadas da internet — as listas de paradas e o texto funcionam offline, as fotos não). Mapas: © OpenStreetMap; traçados aproximados, apenas para orientação.</p>
+</div></footer>
+
+<button class="totop" id="totop" type="button" aria-label="Voltar ao topo"><svg class="ico" style="width:20px;height:20px"><use href="#i-up"/></svg></button>
+<div class="lightbox" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" aria-hidden="true"><button type="button" class="lbclose" id="lbclose" aria-label="Fechar foto ampliada">×</button><img id="lbimg" src="" alt="Foto ampliada"><p class="lbcap" id="lbcap"></p></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  // sticky nav highlight
+  var links=[].slice.call(document.querySelectorAll('.daynav a'));
+  var targets=links.map(function(a){return document.querySelector(a.getAttribute('href'));}).filter(Boolean);
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if(e.isIntersecting){
+          links.forEach(function(l){l.classList.toggle('on', l.getAttribute('href')==='#'+e.target.id);});
+        }
+      });
+    },{rootMargin:'-45% 0px -50% 0px'});
+    targets.forEach(function(t){io.observe(t);});
+  }
+  // back to top
+  var bt=document.getElementById('totop');
+  addEventListener('scroll',function(){bt.classList.toggle('show',scrollY>700);},{passive:true});
+  bt.addEventListener('click',function(){scrollTo({top:0,behavior:'smooth'});});
+  // image error handler — replace broken photos with a neutral labeled placeholder
+  document.addEventListener('error',function(e){
+    var t=e.target;
+    if(!t||t.tagName!=='IMG'||t.dataset.pherr||t.id==='lbimg')return;
+    if(!t.getAttribute('src'))return;
+    if(t.closest&&t.closest('.leaflet-tile-pane'))return;
+    t.dataset.pherr=1;
+    var d=document.createElement('div');d.className='ph';
+    d.setAttribute('role','img');d.setAttribute('aria-label',t.alt||'Imagem indisponível');
+    d.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 17 5-7 4 5 3-4 6 6"/><circle cx="8" cy="7" r="1.6"/><rect x="2" y="3" width="20" height="18" rx="2"/></svg><span>'+(t.alt?t.alt+' — ':'')+'imagem indisponível offline</span>';
+    if(t.parentNode)t.parentNode.replaceChild(d,t);
+  },true);
+
+  // lightbox — close button, focus trap, Escape, focus restore
+  var lb=document.getElementById('lb'), lbi=document.getElementById('lbimg'),
+      lbc=document.getElementById('lbclose'), lbcap=document.getElementById('lbcap'), lbLast=null;
+  function lbOpen(img){
+    lbLast=img;
+    var src=img.currentSrc||img.src;
+    lbi.src=src.replace(/width=\d+/,'width=1200').replace('/640px-','/960px-');
+    lbi.alt=img.alt||'Foto ampliada';
+    lbcap.textContent=img.alt||'';
+    lb.classList.add('open'); lb.setAttribute('aria-hidden','false');
+    lbc.focus();
+  }
+  function lbClose(){
+    if(!lb.classList.contains('open'))return;
+    lb.classList.remove('open'); lb.setAttribute('aria-hidden','true');
+    lbi.removeAttribute('src');
+    if(lbLast&&lbLast.focus)lbLast.focus();
+    lbLast=null;
+  }
+  function zoomable(img){
+    return img&&img.id!=='lbimg'&&!img.dataset.pherr&&!(img.closest&&img.closest('.leaflet-tile-pane'))&&
+      (img.closest('figure')||img.closest('.gcard')||img.closest('.leaflet-popup'));
+  }
+  document.addEventListener('click',function(e){
+    if(e.target===lbc||(e.target.closest&&e.target.closest('#lbclose'))){lbClose();return;}
+    var img=e.target.closest?e.target.closest('img'):null;
+    if(zoomable(img)){lbOpen(img);}
+    else if(e.target===lb||e.target===lbi){lbClose();}
+  });
+  // keyboard: Enter/Space opens focused photo; Tab is trapped while open; Escape closes
+  document.querySelectorAll('figure img,.gcard .im img').forEach(function(im){
+    im.setAttribute('tabindex','0');im.setAttribute('role','button');
+    im.setAttribute('aria-label','Ampliar foto: '+(im.alt||''));
+  });
+  document.addEventListener('keydown',function(e){
+    if(lb.classList.contains('open')){
+      if(e.key==='Escape'){e.preventDefault();lbClose();}
+      else if(e.key==='Tab'){e.preventDefault();lbc.focus();}
+      return;
+    }
+    if((e.key==='Enter'||e.key===' ')&&e.target.tagName==='IMG'&&zoomable(e.target)){
+      e.preventDefault();lbOpen(e.target);
+    }
+  });
+
+  // ---- map legends (visible even before Leaflet loads) ----
+  var LEG={
+    train:{t:'Trem',w:3,c:'#1d2733',d:''},
+    scenic:{t:'Trecho cênico — trem regular, no pass, sem reserva',w:5,c:'#a97a12',d:''},
+    boat:{t:'Barco',w:3,c:'#2a6f97',d:'2 7'},
+    walk:{t:'A pé',w:3,c:'#2e7d54',d:'8 6'},
+    cable:{t:'Teleférico/funicular',w:3,c:'#b3202e',d:'10 4 2 4'},
+    opt:{t:'Opcional · se sobrar tempo (linha fina)',w:2,c:'#8b9199',d:'4 8'},
+    base:{t:'Base de pernoite',base:1}
+  };
+  document.querySelectorAll('.maplegend').forEach(function(el){
+    (el.dataset.legend||'').split(',').forEach(function(k){
+      var o=LEG[k.trim()];if(!o)return;
+      var sw=o.base
+        ?'<svg viewBox="0 0 34 12" aria-hidden="true"><rect x="5" y="1" width="24" height="10" rx="3" fill="#1d2733"/></svg>'
+        :'<svg viewBox="0 0 34 8" aria-hidden="true"><line x1="2" y1="4" x2="32" y2="4" stroke="'+o.c+'" stroke-width="'+o.w+'"'+(o.d?' stroke-dasharray="'+o.d+'"':'')+' stroke-linecap="round"/></svg>';
+      el.insertAdjacentHTML('beforeend','<span>'+sw+o.t+'</span>');
+    });
+  });
+
+  // maps (Leaflet) — degrade gracefully if the library or network is unavailable
+  if(typeof L==='undefined'){return;}
+
+  // ---- shared line styles (shape + colour, never colour alone) ----
+  var ST={
+    train:{color:'#1d2733',weight:3,opacity:.9},
+    scenic:{color:'#a97a12',weight:5,opacity:.9},
+    boat:{color:'#2a6f97',weight:3,dashArray:'2 7',opacity:.9},
+    walk:{color:'#2e7d54',weight:3,dashArray:'8 6',opacity:.95},
+    cable:{color:'#b3202e',weight:3,dashArray:'10 4 2 4',opacity:.95}
+  };
+  function OPT(s){var o={};for(var k in s)o[k]=s[k];o.weight=2;o.opacity=.5;return o;}
+
+  // ---- verified photos (Wikimedia Commons, 960px thumbs) ----
+  var W='https://commons.wikimedia.org/wiki/Special:FilePath';
+  var IM={
+    hb:W+'/Zuerich_Hauptbahnhof-2.jpg?width=960',
+    gross:W+'/Grossm%C3%BCnster_-_view_from_M%C3%BCnsterbr%C3%BCcke.jpg?width=960',
+    frau:W+'/Z%C3%BCrich_-_Fraum%C3%BCnster_-_M%C3%BCnsterhof_-_Zunfthaus_zur_Meisen_-_Sicht_vom_Grossm%C3%BCnster_Karlsturm_IMG_6390.JPG?width=960',
+    lindenhof:W+'/7163_-_Z%C3%BCrich_-_Lindenhof.JPG?width=960',
+    see:W+'/Blick_vom_Z%C3%BCrichsee_auf_Quaibr%C3%BCcke_und_Grossm%C3%BCnster_(2009).jpg?width=960',
+    museum:W+'/Landesmuseum_Z%C3%BCrich_Innenhof.jpg?width=960',
+    kap:W+'/Luzern_asv2022-10_Kapellbr%C3%BCcke_img3.jpg?width=960',
+    lion:W+'/Luzern_asv2022-10_L%C3%B6wendenkmal_img2.jpg?width=960',
+    musegg:W+'/Luzern_-_Museggmauer_mit_Zeitturm_und_Wachturm.jpg?width=960',
+    dsuri:W+'/Dampfschiff_Uri.JPG?width=960',
+    lungern:W+'/Lungerersee_from_Br%C3%BCnigpass.jpg?width=960',
+    unterseen:W+'/CH.BE.Interlaken.Unterseen_2021-04-23_16x9%2BR_16384x9216.jpg?width=960',
+    grind:W+'/00_3403_Grindelwald-First_(Schweiz).jpg?width=960',
+    eiger:W+'/Eiger%2C_M%C3%B6nch_and_Jungfrau.jpg?width=960',
+    staub:W+'/Lauterbrunnen_Staubbach.jpg?width=960',
+    blm:W+'/Lauterbrunnen_valley%2C_mountain_railway_line_of_Bergbahn_Lauterbrunnen_-_M%C3%BCrren_(BLM)%2C_cable_car_station_Gr%C3%BCtschalp%2C_Mirrenflue_-_1_lauterbrunnen_valley_wengen_2022_(cropped).jpg?width=960',
+    murren:W+'/1_M%C3%BCrren_2022.jpg?width=960',
+    winteregg:W+'/Lauterbrunnen_valley%2C_waterfall_-_Kleiner_Staubbach-Wasserfall_und_Staubbachfall_%C3%BCber_Lauterbrunnen%2C_Im_lenge_Schwand_Bergwiesen_und_Bergwald%2C_Winteregg_-_1_lauterbrunnen_valley_wengen_2022_(cropped).jpg?width=960',
+    stech:W+'/4748_-_Stechelberg_-_Schilthornbahn.JPG?width=960',
+    brienz:W+'/5898_-_B%C3%B6nigen_-_Brienzersee.JPG?width=960',
+    isel:W+'/5902_-_Iseltwald.JPG?width=960',
+    bluem:W+'/Dampfschiff-Bluemlisalp-Thunersee.JPG?width=960',
+    thun:W+'/1_thun_castle_view_2012.jpg?width=960',
+    hauptg:W+'/4334_-_Thun_-_Obere_Hauptgasse.JPG?width=960',
+    zyt:W+'/Zytglogge_01.jpg?width=960',
+    kram:W+'/CH_Bern_Kramgasse.jpg?width=960',
+    bund:W+'/Bundeshaus_1128.jpg?width=960',
+    baren:W+'/Bear_park_in_Bern.jpg?width=960',
+    rosen:W+'/Bern_Altstadt_von_Rosengarten_20211007.jpg?width=960',
+    brig:W+'/Stockalper_Palace.jpg?width=960',
+    mgb:W+'/Bahnhof_Brig-IMG_9427.jpg?width=960',
+    goms:W+'/KircheFiesch.JPG?width=960',
+    ulrichen:W+'/Ulrichen_Goms.jpg?width=960',
+    and:W+'/Andermatt.jpg?width=960',
+    teufel:W+'/Teufelsbruecken_Schoellenen_01_09.jpg?width=960',
+    brunnen:W+'/Brunnen_SZ_Vierwaldst%C3%A4ttersee.jpg?width=960'
+  };
+
+  // ---- compact mobile-friendly popup ----
+  function pop(o){
+    var h='<div class="pp"><b>'+o.n+'</b>';
+    if(o.img)h+='<img loading="lazy" src="'+o.img+'" alt="'+(o.ia||o.n)+'">';
+    if(o.time||o.dur)h+='<p class="ppl">🕒 '+(o.time||'')+(o.time&&o.dur?' · ':'')+(o.dur||'')+'</p>';
+    var m='';
+    if(o.pr==='must')m+='<span class="pill must">Must do</span>';
+    else if(o.pr==='rec')m+='<span class="pill rec">Recomendado</span>';
+    else if(o.pr==='opt')m+='<span class="pill opt">Opcional</span>';
+    if(o.cost)m+='<span class="pill '+(o.cost==='No pass'||o.cost==='Grátis'?'free':'pay')+'">'+o.cost+'</span>';
+    if(m)h+='<div class="ppmeta">'+m+'</div>';
+    if(o.note)h+='<p class="ppl">'+o.note+'</p>';
+    if(o.url)h+='<a class="ext" href="'+o.url+'" target="_blank" rel="noopener">Site oficial</a>';
+    return h+'</div>';
+  }
+  function mark(map,s){
+    var cls='num-icon'+(s.hl?' hl':'')+(s.end?' end':'');
+    var m=L.marker(s.c,{icon:L.divIcon({className:'',html:'<div class="'+cls+'">'+s.n+'</div>',iconSize:[26,26],iconAnchor:[13,13]})}).addTo(map);
+    if(s.p)m.bindPopup(pop(s.p),{maxWidth:230});
+    return m;
+  }
+  function baseMark(map,c,label){
+    L.marker(c,{icon:L.divIcon({className:'',html:'<div class="base-icon">'+label+'</div>',iconSize:null,iconAnchor:[34,-8]})}).addTo(map);
+  }
+  function node(map,c,html){
+    L.circleMarker(c,{radius:5,color:'#1d2733',weight:2,fillColor:'#fff',fillOpacity:1}).addTo(map).bindPopup(html,{maxWidth:220});
+  }
+  function mk(id,build){ var el=document.getElementById(id); if(!el) return; el.innerHTML=''; try{ build(); }catch(err){ el.innerHTML='<div class="fallback">Mapa indisponível — use a lista de paradas abaixo.</div>'; } }
+  function tiles(map){ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(map); }
+
+  // ---- OVERVIEW MAP: whole trip at a glance ----
+  mk('map0',function(){
+    var map=L.map('map0',{scrollWheelZoom:false});tiles(map);
+    // regular trains
+    L.polyline([[47.3769,8.5417],[47.1740,8.5150],[47.0502,8.3093]],ST.train).addTo(map);                       // Zurique → Lucerna
+    L.polyline([[46.6905,7.8692],[46.6650,7.8690],[46.6167,7.9000],[46.6200,7.9600],[46.6244,8.0414]],ST.train).addTo(map); // Interlaken → Grindelwald
+    L.polyline([[46.6167,7.9000],[46.5934,7.9086]],ST.train).addTo(map);                                        // Zweilütschinen → Lauterbrunnen
+    L.polyline([[46.7549,7.6298],[46.8200,7.5900],[46.9490,7.4390]],ST.train).addTo(map);                       // Thun → Berna
+    L.polyline([[46.9490,7.4390],[46.8730,7.5610],[46.6860,7.6800],[46.6905,7.8692]],ST.train).addTo(map);      // Berna → Spiez → Interlaken
+    L.polyline([[46.6905,7.8692],[46.6860,7.6800],[46.5880,7.6490],[46.4500,7.7500],[46.3190,7.9880]],ST.train).addTo(map); // Interlaken → Lötschberg → Brig
+    L.polyline([[46.6350,8.5940],[46.6489,8.5920],[46.6680,8.5880],[46.9037,8.6244],[47.0200,8.6100],[47.1740,8.5150],[47.3830,8.5400],[47.4515,8.5647]],ST.train).addTo(map); // Andermatt → Göschenen → ZRH aeroporto
+    // scenic trains
+    L.polyline([[47.0502,8.3093],[46.8960,8.2450],[46.7566,8.1367],[46.7550,8.0380],[46.6905,7.8692]],ST.scenic).addTo(map); // Luzern–Interlaken Express (Brünig)
+    L.polyline([[46.3190,7.9880],[46.4110,8.1350],[46.5350,8.3510],[46.5980,8.5030],[46.6350,8.5940]],ST.scenic).addTo(map); // rota do Glacier Express (Goms)
+    // boats
+    L.polyline([[46.6830,7.8510],[46.7000,7.7400],[46.7250,7.6950],[46.7549,7.6298]],ST.boat).addTo(map);       // Lago de Thun
+    L.polyline([[46.6905,7.8692],[46.7050,7.9400],[46.7107,7.9663]],OPT(ST.boat)).addTo(map);                   // Lago de Brienz (opcional)
+    // cable cars
+    L.polyline([[46.5934,7.9086],[46.5867,7.8930],[46.5591,7.8926]],ST.cable).addTo(map);                       // Grütschalp + BLM até Mürren
+    L.polyline([[46.6244,8.0414],[46.6216,8.0596]],ST.cable).addTo(map);                                        // Pfingstegg
+    L.polyline([[46.5591,7.8926],[46.5547,7.9004],[46.5934,7.9086]],OPT(ST.cable)).addTo(map);                  // Stechelberg (opcional)
+    // bases
+    baseMark(map,[47.4177,8.5620],'Radisson · 3 noites');
+    node(map,[47.4177,8.5620],'<b>Radisson Hotel &amp; Suites</b><br>Base 30 ago–2 set · Glattpark · café incluído · tram até a HB (~20 min)');
+    baseMark(map,[46.6868,7.8540],'Unterseen · 3 noites');
+    // nodes
+    node(map,[47.3769,8.5417],'<b>Zurique — centro</b><br>Três dias a pé · tram desde o hotel em Glattpark');
+    node(map,[47.0502,8.3093],'<b>Lucerna</b><br>Qua 2 set, dia inteiro no caminho para Interlaken');
+    node(map,[46.7566,8.1367],'<b>Passo do Brünig</b><br>Trem panorâmico Luzern–Interlaken Express');
+    node(map,[46.6868,7.8540],'<b>Interlaken · Unterseen</b><br>Hotel Central Continental · 2–5 set · café incluído');
+    node(map,[46.6244,8.0414],'<b>Grindelwald</b><br>Bate-volta qui 3 set + Pfingstegg');
+    node(map,[46.5934,7.9086],'<b>Lauterbrunnen</b><br>Bate-volta qui 3 set · cascata Staubbach');
+    node(map,[46.5591,7.8926],'<b>Mürren</b><br>Bate-volta qui 3 set · vilarejo sem carros');
+    node(map,[46.7549,7.6298],'<b>Thun</b><br>Bate-volta sex 4 set · chegada de barco');
+    node(map,[46.9490,7.4390],'<b>Berna</b><br>Bate-volta sex 4 set · cidade velha UNESCO');
+    node(map,[46.3190,7.9880],'<b>Brig</b><br>Sáb 5 set · troca para a MGB');
+    node(map,[46.4110,8.1350],'<b>Vale de Goms</b><br>Sáb 5 set · rota do Glacier Express em trem regular');
+    node(map,[46.6350,8.5940],'<b>Andermatt</b><br>Sáb 5 set · almoço e Schöllenen');
+    node(map,[46.9037,8.6244],'<b>Flüelen · Lago de Lucerna</b><br>Sáb 5 set · da janela do trem');
+    node(map,[47.4515,8.5647],'<b>Aeroporto de Zurique</b><br>Sáb 5 set ~16h · voo 20h25');
+    map.fitBounds(L.latLngBounds([[46.29,7.40],[47.48,8.68]]).pad(0.04));
+  });
+
+  // ---- ZURICH WALKING MAP (serves the three city days) ----
+  mk('mapZH',function(){
+    var map=L.map('mapZH',{scrollWheelZoom:false});tiles(map);
+    var stops=[
+      {n:1,c:[47.3779,8.5403],p:{n:'1 · Zürich HB · ShopVille',img:IM.hb,ia:'Fachada do Zürich Hauptbahnhof',note:'ShopVille no subsolo: o único supermercado aberto aos domingos.',url:'https://www.zuerich.com/en'}},
+      {n:2,c:[47.3790,8.5404],p:{n:'2 · Museu Nacional Suíço',img:IM.museum,ia:'Pátio do Museu Nacional Suíço',time:'ter à tarde',dur:'~2h',pr:'opt',cost:'~CHF 13/pessoa',note:'Fecha às segundas.',url:'https://www.nationalmuseum.ch/en/Landesmuseum_Zuerich'}},
+      {n:3,c:[47.3736,8.5389],p:{n:'3 · Bahnhofstrasse',pr:'rec',cost:'Grátis',note:'Coop e Migros ao longo da rua; Victorinox na Rennweg grava o nome de graça.',url:'https://www.zuerich.com/en/visit/shopping/bahnhofstrasse'}},
+      {n:4,c:[47.3726,8.5406],hl:1,p:{n:'4 · Lindenhof',img:IM.lindenhof,ia:'A praça no topo da colina Lindenhof',dur:'~20 min',pr:'rec',cost:'Grátis',note:'A melhor vista gratuita da cidade velha e do Limmat.'}},
+      {n:5,c:[47.3701,8.5441],hl:1,p:{n:'5 · Grossmünster',img:IM.gross,ia:'As torres do Grossmünster vistas da Münsterbrücke',dur:'~30 min',pr:'must',cost:'Grátis',note:'Subir a torre Karlsturm é opcional (~CHF 5).',url:'https://www.grossmuenster.ch/en/'}},
+      {n:6,c:[47.3699,8.5417],hl:1,p:{n:'6 · Fraumünster',img:IM.frau,ia:'A Fraumünster vista da torre do Grossmünster',dur:'~30 min',pr:'must',cost:'CHF 5',note:'Os vitrais de Chagall — sem fotos lá dentro.',url:'https://www.fraumuenster.ch/'}},
+      {n:7,c:[47.3698,8.5390],p:{n:'7 · Paradeplatz · Sprüngli',dur:'~15 min',pr:'rec',cost:'~CHF 8',note:'Luxemburgerli: o único doce genuinamente de Zurique.',url:'https://www.spruengli.ch/en/'}},
+      {n:8,c:[47.3666,8.5414],hl:1,p:{n:'8 · Bürkliplatz',img:IM.see,ia:'O Lago de Zurique com a Quaibrücke e o Grossmünster',pr:'rec',cost:'Grátis',note:'Fim de tarde à beira do lago; barcos da ZSG saem daqui.',url:'https://www.zuerich.com/en/visit/attractions/lake-zurich'}},
+      {n:9,c:[47.3639,8.5459],end:1,p:{n:'9 · Passeio do lago (Utoquai → Seefeld)',pr:'rec',cost:'Grátis',note:'Pôr do sol com os Alpes no horizonte em dia limpo.'}}
+    ];
+    stops.forEach(function(s){mark(map,s);});
+    L.polyline([[47.3779,8.5403],[47.3736,8.5389],[47.3726,8.5406],[47.3711,8.5424],[47.3701,8.5441],[47.3699,8.5417],[47.3698,8.5390],[47.3666,8.5414],[47.3639,8.5459]],ST.walk).addTo(map);
+    L.polyline([[47.3779,8.5403],[47.3790,8.5404]],OPT(ST.walk)).addTo(map);
+    map.fitBounds(L.latLngBounds([[47.362,8.532],[47.381,8.549]]).pad(0.08));
+  });
+
+  // ---- WED 2 SEP: Zurich, Lucerne & the Brünig ----
+  mk('mapa2m',function(){
+    var map=L.map('mapa2m',{scrollWheelZoom:false});tiles(map);
+    var stops=[
+      {n:1,c:[47.3779,8.5403],p:{n:'1 · Zurique HB',time:'08h30',dur:'45 min de trem',cost:'No pass',note:'Se puder escolher, o trem via Zug margeia o lago por alguns minutos.',url:'https://www.sbb.ch/en'}},
+      {n:2,c:[47.0502,8.3093],p:{n:'2 · Lucerna, estação',time:'09h15',note:'Malas nos lockers (CHF 6–9).'}},
+      {n:3,c:[47.0517,8.3076],hl:1,p:{n:'3 · Kapellbrücke',img:IM.kap,ia:'A Kapellbrücke e a torre Wasserturm sobre o Reuss',time:'09h30',dur:'~30 min',pr:'must',cost:'Grátis',note:'Coberta — funciona até com chuva.',url:'https://www.luzern.com/en/poi/chapel-bridge-and-water-tower/'}},
+      {n:4,c:[47.0586,8.3107],hl:1,p:{n:'4 · Monumento do Leão',img:IM.lion,ia:'O leão esculpido na rocha em Lucerna',time:'~11h',dur:'~20 min',pr:'must',cost:'Grátis',note:'Chegue cedo — os grupos de excursão lotam ao meio-dia.',url:'https://www.luzern.com/en/poi/lion-monument/'}},
+      {n:5,c:[47.0563,8.3040],hl:1,p:{n:'5 · Muralha Musegg',img:IM.musegg,ia:'A muralha Musegg com as torres Zeitturm e Wachturm',time:'~11h45',dur:'~1h',pr:'rec',cost:'Grátis',note:'Dá para subir em algumas torres de graça (até ~17h).',url:'https://www.luzern.com/en/poi/musegg-wall/'}},
+      {n:6,c:[47.0450,8.3300],hl:1,p:{n:'6 · Cruzeiro no lago',img:IM.dsuri,ia:'Vapor de rodas no Lago dos Quatro Cantões',time:'tarde',dur:'1–2h',pr:'rec',cost:'No pass',note:'Decida na hora conforme o tempo; píer em frente à estação.',url:'https://www.lakelucerne.ch/en/'}},
+      {n:7,c:[46.7566,8.1367],hl:1,p:{n:'7 · Passo do Brünig',img:IM.lungern,ia:'O Lago de Lungern visto do passo do Brünig',time:'~16h40',pr:'must',cost:'No pass',note:'Sarnen e Lungern à direita; depois do passo, Brienz à esquerda.',url:'https://www.zentralbahn.ch/en/luzern-interlaken-express'}},
+      {n:8,c:[46.6868,7.8540],end:1,p:{n:'8 · Unterseen',img:IM.unterseen,ia:'O casario histórico de Unterseen',time:'18h',pr:'must',note:'Check-in no Hotel Central Continental — café da manhã incluído; 8 min a pé da Interlaken West.',url:'https://www.interlaken.swiss/en/experiences/poi/unterseen/'}}
+    ];
+    stops.forEach(function(s){mark(map,s);});
+    L.polyline([[47.3779,8.5403],[47.2900,8.4600],[47.1740,8.5150],[47.0502,8.3093]],ST.train).addTo(map);
+    L.polyline([[47.0502,8.3093],[47.0517,8.3076],[47.0586,8.3107],[47.0563,8.3040],[47.0502,8.3093]],ST.walk).addTo(map);
+    L.polyline([[47.0502,8.3093],[47.0450,8.3300],[47.0300,8.3600],[47.0450,8.3300],[47.0502,8.3093]],ST.boat).addTo(map);
+    L.polyline([[47.0502,8.3093],[46.8960,8.2450],[46.8320,8.1810],[46.7566,8.1367],[46.7550,8.0380],[46.6905,7.8692],[46.6868,7.8540]],ST.scenic).addTo(map);
+    map.fitBounds(L.latLngBounds([[46.66,7.82],[47.40,8.56]]).pad(0.05));
+  });
+
+  // ---- THU 3 SEP: the three-village circuit ----
+  mk('mapa3m',function(){
+    var map=L.map('mapa3m',{scrollWheelZoom:false});tiles(map);
+    var stops=[
+      {n:1,c:[46.6905,7.8692],p:{n:'1 · Interlaken Ost',time:'08h15',dur:'~35 min de trem',cost:'No pass',note:'Trens a cada 30 min — sem estresse se perder um.'}},
+      {n:2,c:[46.6244,8.0414],hl:1,p:{n:'2 · Grindelwald',img:IM.grind,ia:'O vilarejo de Grindelwald no vale',time:'09h–10h',pr:'must',cost:'Grátis',note:'A face norte do Eiger (1.800 m) fica atrás das casas.',url:'https://www.grindelwald.swiss/en/'}},
+      {n:3,c:[46.6216,8.0596],hl:1,p:{n:'3 · Pfingstegg · Rodelbahn',img:W+'/Luftseilbahn_Grindelwald-Pfingstegg_-_panoramio.jpg?width=960',ia:'A cabine do teleférico Grindelwald–Pfingstegg',time:'10h–11h30',dur:'~1h20',pr:'must',cost:'~CHF 48 o casal',note:'Uma descida cada; compra só no local; fecha com chuva.',url:'https://www.pfingstegg.ch/en/discover/toboggan'}},
+      {n:4,c:[46.6167,7.9000],p:{n:'4 · Zweilütschinen',time:'11h45',note:'Troca de trem onde os dois vales se encontram.'}},
+      {n:5,c:[46.5934,7.9086],hl:1,p:{n:'5 · Lauterbrunnen · Staubbach',img:IM.staub,ia:'A cascata Staubbach sobre Lauterbrunnen',time:'12h30',dur:'~1h + piquenique',pr:'must',cost:'Grátis',note:'Passarela atrás da água: ~20 min de subida.',url:'https://www.lauterbrunnen.swiss/en/'}},
+      {n:6,c:[46.5867,7.8930],p:{n:'6 · Grütschalp',img:IM.blm,ia:'A linha BLM na encosta sobre o vale de Lauterbrunnen',time:'13h45',pr:'must',cost:'No pass',note:'Teleférico de 686 m + trenzinho na beira do precipício.',url:'https://www.jungfrau.ch/en-gb/winteregg-muerren/'}},
+      {n:7,c:[46.5591,7.8926],hl:1,p:{n:'7 · Mürren',img:IM.murren,ia:'Mürren no terraço da montanha',time:'14h30',dur:'~1h15',pr:'must',cost:'No pass',note:'Café na varanda com Eiger, Mönch e Jungfrau de frente.',url:'https://www.jungfrau.ch/en-gb/muerren/'}},
+      {n:8,c:[46.5741,7.8892],p:{n:'8 · Trilha Winteregg',img:IM.winteregg,ia:'Prados de Winteregg sobre o vale de Lauterbrunnen',time:'15h45',dur:'~1h15',pr:'opt',cost:'Grátis',note:'Quase plana; trem de volta em qualquer estação.'}},
+      {n:9,c:[46.5547,7.9004],p:{n:'9 · Stechelberg',img:IM.stech,ia:'A cabine da Schilthornbahn subindo de Stechelberg',time:'16h30',pr:'opt',cost:'No pass',note:'O teleférico mais inclinado do mundo (159,4%); ônibus de volta.',url:'https://www.schilthorn.ch/en'}},
+      {n:10,c:[46.7107,7.9663],hl:1,p:{n:'10 · Lago de Brienz · Iseltwald',img:IM.brienz,ia:'As águas turquesa do Lago de Brienz',time:'17h30',pr:'opt',cost:'No pass',note:'Só se o dia render — confirme o último barco.',url:'https://www.bls-schiff.ch'}},
+      {n:11,c:[46.6868,7.8540],end:1,p:{n:'11 · Unterseen',time:'19h30',note:'Höhematte com a Jungfrau de frente e jantar no quarto.'}}
+    ];
+    stops.forEach(function(s){mark(map,s);});
+    // núcleo do dia (linhas cheias)
+    L.polyline([[46.6905,7.8692],[46.6650,7.8690],[46.6167,7.9000],[46.6200,7.9600],[46.6244,8.0414]],ST.train).addTo(map);
+    L.polyline([[46.6244,8.0414],[46.6216,8.0596]],ST.cable).addTo(map);
+    L.polyline([[46.6244,8.0414],[46.6200,7.9600],[46.6167,7.9000],[46.5934,7.9086]],ST.train).addTo(map);
+    L.polyline([[46.5934,7.9086],[46.5867,7.8930]],ST.cable).addTo(map);
+    L.polyline([[46.5867,7.8930],[46.5741,7.8892],[46.5591,7.8926]],ST.train).addTo(map);
+    L.polyline([[46.5934,7.9086],[46.6167,7.9000],[46.6650,7.8690],[46.6905,7.8692],[46.6868,7.8540]],ST.train).addTo(map);
+    // opcionais (linhas finas)
+    L.polyline([[46.5591,7.8926],[46.5741,7.8892],[46.5867,7.8930]],OPT(ST.walk)).addTo(map);
+    L.polyline([[46.5591,7.8926],[46.5547,7.9004]],OPT(ST.cable)).addTo(map);
+    L.polyline([[46.5547,7.9004],[46.5934,7.9086]],OPT(ST.train)).addTo(map);
+    L.polyline([[46.6905,7.8692],[46.6980,7.9100],[46.7050,7.9400],[46.7107,7.9663]],OPT(ST.boat)).addTo(map);
+    map.fitBounds(L.latLngBounds([[46.545,7.84],[46.72,8.07]]).pad(0.04));
+  });
+
+  // ---- FRI 4 SEP: Lake Thun, castle & Bern ----
+  mk('mapa4m',function(){
+    var map=L.map('mapa4m',{scrollWheelZoom:false});tiles(map);
+    var stops=[
+      {n:1,c:[46.6868,7.8540],p:{n:'1 · Unterseen',time:'09h',note:'A pé até o píer de Interlaken West (~10 min).'}},
+      {n:2,c:[46.7250,7.6950],hl:1,p:{n:'2 · Barco pelo Lago de Thun',img:IM.bluem,ia:'O vapor Blümlisalp no Lago de Thun',time:'09h',dur:'~2h',pr:'must',cost:'No pass',note:'Castelos de Oberhofen e Spiez à beira d\'água; com pressa, o trem faz em 20 min.',url:'https://www.bls-schiff.ch'}},
+      {n:3,c:[46.7601,7.6289],hl:1,p:{n:'3 · Castelo de Thun',img:IM.thun,ia:'O castelo de Thun sobre a cidade velha',time:'11h',dur:'~1h',pr:'must',cost:'Museu no pass',note:'Subida curta desde a Obere Hauptgasse.',url:'https://www.thunersee.ch/en/'}},
+      {n:4,c:[46.7580,7.6296],hl:1,p:{n:'4 · Obere Hauptgasse',img:IM.hauptg,ia:'As calçadas elevadas da Obere Hauptgasse',time:'11h–13h',pr:'must',cost:'Grátis',note:'Calçadas elevadas sobre as lojas — únicas na Europa.',url:'https://www.thunersee.ch/en/'}},
+      {n:5,c:[46.8730,7.5610],p:{n:'5 · Thun → Berna',time:'13h30',dur:'~20 min',cost:'No pass'}},
+      {n:6,c:[46.9480,7.4478],hl:1,p:{n:'6 · Zytglogge',img:IM.zyt,ia:'A torre do relógio Zytglogge em Berna',time:'14h',pr:'must',cost:'Grátis',note:'Autômatos ~4 min antes de cada hora cheia.',url:'https://www.bern.com/en'}},
+      {n:7,c:[46.9465,7.4443],hl:1,p:{n:'7 · Bundeshaus e catedral',img:IM.bund,ia:'A cúpula do Bundeshaus',time:'~16h',pr:'rec',cost:'Grátis',note:'Arcadas da Kramgasse no caminho; terraço com vista dos Alpes.',url:'https://www.bern.com/en'}},
+      {n:8,c:[46.9480,7.4593],hl:1,p:{n:'8 · Bärenpark',img:IM.baren,ia:'O Bärenpark na margem do Aare',time:'~17h',pr:'rec',cost:'Grátis',note:'Os ursos-símbolo da cidade, na ponta leste da cidade velha.',url:'https://www.bern.com/en'}},
+      {n:9,c:[46.9522,7.4610],hl:1,p:{n:'9 · Rosengarten',img:IM.rosen,ia:'A cidade velha de Berna vista do Rosengarten',time:'~17h30',pr:'rec',cost:'Grátis',note:'10 min de subida desde o Bärenpark — a vista clássica.'}},
+      {n:10,c:[46.9490,7.4390],p:{n:'10 · Berna, estação',time:'18h30',dur:'~55 min',cost:'No pass'}},
+      {n:11,c:[46.6875,7.8560],end:1,p:{n:'11 · Jantar em Unterseen',time:'20h',pr:'rec',cost:'~CHF 100 o casal',note:'O único jantar fora — reserve na véspera.'}}
+    ];
+    stops.forEach(function(s){mark(map,s);});
+    L.polyline([[46.6868,7.8540],[46.6830,7.8510]],ST.walk).addTo(map);
+    L.polyline([[46.6830,7.8510],[46.6800,7.8100],[46.6900,7.7700],[46.7000,7.7400],[46.7250,7.6950],[46.7440,7.6680],[46.7549,7.6298]],ST.boat).addTo(map);
+    L.polyline([[46.7549,7.6298],[46.7580,7.6296],[46.7601,7.6289]],ST.walk).addTo(map);
+    L.polyline([[46.7549,7.6298],[46.8200,7.5900],[46.8730,7.5610],[46.9490,7.4390]],ST.train).addTo(map);
+    L.polyline([[46.9490,7.4390],[46.9480,7.4478],[46.9465,7.4443],[46.9470,7.4514],[46.9480,7.4593],[46.9522,7.4610]],ST.walk).addTo(map);
+    L.polyline([[46.9490,7.4390],[46.8730,7.5610],[46.7580,7.6290],[46.6860,7.6800],[46.6830,7.8510],[46.6875,7.8560]],ST.train).addTo(map);
+    map.fitBounds(L.latLngBounds([[46.66,7.42],[46.98,7.87]]).pad(0.05));
+  });
+
+  // ---- SAT 5 SEP: Goms, Andermatt & the airport ----
+  mk('mapa5m',function(){
+    var map=L.map('mapa5m',{scrollWheelZoom:false});tiles(map);
+    var stops=[
+      {n:1,c:[46.6868,7.8540],p:{n:'1 · Unterseen',time:'08h30',note:'Check-out; trem na Interlaken Ost, malas conosco o dia todo.'}},
+      {n:2,c:[46.3190,7.9880],p:{n:'2 · Brig',img:IM.mgb,ia:'Trens da Matterhorn Gotthard Bahn na estação de Brig',time:'~09h40',pr:'must',cost:'No pass',note:'Troca para a MGB na praça da estação; Stockalper a 5 min, se der folga.',url:'https://www.matterhorngotthardbahn.ch/en'}},
+      {n:3,c:[46.4110,8.1350],hl:1,p:{n:'3 · Vale de Goms',img:IM.goms,ia:'A igreja de Fiesch no vale de Goms',time:'10h–11h30',pr:'must',cost:'No pass',note:'Rota do Glacier Express em trem regular; pare em Fiesch ou Münster se o horário permitir.',url:'https://www.obergoms.ch/en'}},
+      {n:4,c:[46.6350,8.5940],hl:1,p:{n:'4 · Andermatt',img:IM.and,ia:'O vilarejo de Andermatt entre montanhas',time:'11h45–13h',dur:'~1h15',pr:'must',note:'Almoço no cruzamento dos passos Furka, Oberalp e Gotthard.',url:'https://www.andermatt.ch/en'}},
+      {n:5,c:[46.6489,8.5920],hl:1,p:{n:'5 · Schöllenen · Ponte do Diabo',img:IM.teufel,ia:'As pontes do Diabo na garganta de Schöllenen',time:'13h15',dur:'15 min',pr:'must',cost:'No pass',note:'Trecho de cremalheira que o próprio Glacier Express não percorre.'}},
+      {n:6,c:[46.9037,8.6244],p:{n:'6 · Lago de Lucerna · Flüelen e Brunnen',img:IM.brunnen,ia:'O Lago de Lucerna visto de Brunnen',time:'~14h30',pr:'rec',cost:'No pass',note:'Sente à esquerda na descida do Gotthard.'}},
+      {n:7,c:[47.4500,8.5620],p:{n:'7 · Aeroporto de Zurique',time:'~16h',note:'4h de folga até o voo — absorve um trem perdido.'}},
+      {n:8,c:[47.4580,8.5550],end:1,p:{n:'8 · Voo ZRH → MAD',time:'20h25',note:'Em Madri: T4 → satélite T4S, vá direto.'}}
+    ];
+    stops.forEach(function(s){mark(map,s);});
+    L.polyline([[46.6868,7.8540],[46.6860,7.6800],[46.5880,7.6490],[46.4500,7.7500],[46.3190,7.9880]],ST.train).addTo(map);
+    L.polyline([[46.3190,7.9880],[46.3600,8.0500],[46.4110,8.1350],[46.4700,8.2400],[46.5350,8.3510],[46.5980,8.5030],[46.6350,8.5940]],ST.scenic).addTo(map);
+    L.polyline([[46.6350,8.5940],[46.6489,8.5920],[46.6680,8.5880]],ST.train).addTo(map);
+    L.polyline([[46.6680,8.5880],[46.7800,8.6100],[46.9037,8.6244],[47.0200,8.6100],[47.1740,8.5150],[47.3830,8.5400],[47.4500,8.5620]],ST.train).addTo(map);
+    map.fitBounds(L.latLngBounds([[46.29,7.60],[47.48,8.66]]).pad(0.05));
+  });
+});
+</script>
+</body>
+</html>
